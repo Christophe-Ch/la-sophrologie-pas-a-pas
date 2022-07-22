@@ -1,1 +1,6 @@
-@import '~bootstrap/scss/bootstrap';
+@import "reset";
+@import "_variables";
+@import "_fonts";
+@import "_typo";
+@import "~bootstrap/scss/bootstrap-grid";
+@import "~bootstrap/scss/bootstrap-utilities";
