@@ -12,9 +12,11 @@ html,
 body {
   font-family: $primary-font  !important;
   color: $dark_terra_cotta;
+  overflow-x: hidden;
 }
 
-body {
+.app-container {
   position: relative;
+  overflow-x: hidden;
   min-height: 100vh;
 }

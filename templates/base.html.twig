@@ -16,25 +16,27 @@
         {% endblock %}
     </head>
     <body class="bg_cosmic_latte">
-        <nav>
-            <input type="checkbox" name="nav_toggle" id="nav_toggle" class="nav-toggle">
-            <label for="nav_toggle" class="nav-toggle-label">
-                <span></span>
-                <span></span>
-                <span></span>
-            </label>
-            <ul class="nav-links">
-                <li class="nav-link {{ app.request.attributes.get('_route') == "app_index" ? "active" }}"><a href="">Accueil</a></li>
-                <li class="nav-link {{ app.request.attributes.get('_route') == "app_sophrologie" ? "active" }}"><a href="">Sophrologie</a></li>
-                <li class="nav-link {{ app.request.attributes.get('_route') == "app_seances" ? "active" }}"><a href="">Déroulement des séances</a></li>
-                <li class="nav-link {{ app.request.attributes.get('_route') == "app_qui_suis_je" ? "active" }}"><a href="">Qui suis-je</a></li>
-                <li class="nav-link {{ app.request.attributes.get('_route') == "app_tarifs" ? "active" }}"><a href="">Tarifs</a></li>
-                <li class="nav-link {{ app.request.attributes.get('_route') == "app_contact" ? "active" }}"><a href="">Contact</a></li>
-            </ul>
-        </nav>
-        {% block body %}{% endblock %}
-        <footer>
-            <a href="" class="fw_light">mentions légales</a>
-        </footer>
+        <div class="app-container">
+            <nav>
+                <input type="checkbox" name="nav_toggle" id="nav_toggle" class="nav-toggle">
+                <label for="nav_toggle" class="nav-toggle-label">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+                <ul class="nav-links">
+                    <li class="nav-link {{ app.request.attributes.get('_route') == "app_index" ? "active" }}"><a href="">Accueil</a></li>
+                    <li class="nav-link {{ app.request.attributes.get('_route') == "app_sophrologie" ? "active" }}"><a href="">Sophrologie</a></li>
+                    <li class="nav-link {{ app.request.attributes.get('_route') == "app_seances" ? "active" }}"><a href="">Déroulement des séances</a></li>
+                    <li class="nav-link {{ app.request.attributes.get('_route') == "app_qui_suis_je" ? "active" }}"><a href="">Qui suis-je</a></li>
+                    <li class="nav-link {{ app.request.attributes.get('_route') == "app_tarifs" ? "active" }}"><a href="">Tarifs</a></li>
+                    <li class="nav-link {{ app.request.attributes.get('_route') == "app_contact" ? "active" }}"><a href="">Contact</a></li>
+                </ul>
+            </nav>
+            {% block body %}{% endblock %}
+            <footer>
+                <a href="" class="fw_light">mentions légales</a>
+            </footer>
+        </div>
     </body>
 </html>
