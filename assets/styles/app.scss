@@ -2,5 +2,13 @@
 @import "_variables";
 @import "_fonts";
 @import "_typo";
+@import "_background";
+@import "components/navbar";
 @import "~bootstrap/scss/bootstrap-grid";
 @import "~bootstrap/scss/bootstrap-utilities";
+
+html,
+body {
+  font-family: $primary-font  !important;
+  color: $dark_terra_cotta;
+}
