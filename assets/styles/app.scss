@@ -1,9 +1,10 @@
 @import "reset";
-@import "_variables";
-@import "_fonts";
-@import "_typo";
-@import "_background";
+@import "variables";
+@import "fonts";
+@import "typo";
+@import "background";
 @import "components/navbar";
+@import "components/footer";
 @import "~bootstrap/scss/bootstrap-grid";
 @import "~bootstrap/scss/bootstrap-utilities";
 
@@ -11,4 +12,9 @@ html,
 body {
   font-family: $primary-font  !important;
   color: $dark_terra_cotta;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
 }
