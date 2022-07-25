@@ -84,7 +84,7 @@ nav {
 
   background: white;
 
-  transition: .75s ease-in-out;
+  transition: .75s left ease-in-out;
 
   .nav-link {
     font-size: $text_2xl;
@@ -98,7 +98,7 @@ nav {
   }
 }
 
-@media screen and (min-width: $desktop) {
+@media screen and (min-width: $xl) {
   nav {
     padding: 1rem 0;
   }
@@ -115,11 +115,13 @@ nav {
 
     flex-direction: row;
 
+    text-align: center;
+
     .nav-link {
       margin-inline: 15px;
       position: relative;
 
-      background: linear-gradient(to right, $dark_terra_cotta, $antique_fuchsia);
+      background: linear-gradient(to bottom, $dark_terra_cotta, $antique_fuchsia);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
 
