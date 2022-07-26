@@ -5,20 +5,18 @@ h1 {
 }
 
 h2 {
-  font-weight: $fw_bold;
+  font-weight: $fw_black;
   font-size: 2rem;
   line-height: 3rem;
 }
 
 @media screen and (min-width: $md) {
   h1 {
-    font-weight: $fw_black;
     font-size: 5rem;
     line-height: 6rem;
   }
 
   h2 {
-    font-weight: $fw_bold;
     font-size: 3rem;
     line-height: 4rem;
   }

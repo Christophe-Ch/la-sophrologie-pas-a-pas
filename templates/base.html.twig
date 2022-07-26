@@ -15,7 +15,7 @@
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
     </head>
-    <body class="bg_cosmic_latte">
+    <body class="bg_light_color">
         <div class="app-container">
             <nav>
                 <input type="checkbox" name="nav_toggle" id="nav_toggle" class="nav-toggle">
@@ -25,12 +25,12 @@
                     <span></span>
                 </label>
                 <ul class="nav-links">
-                    <li class="nav-link {{ app.request.attributes.get('_route') == "app_index" ? "active" }}"><a href="">Accueil</a></li>
-                    <li class="nav-link {{ app.request.attributes.get('_route') == "app_sophrologie" ? "active" }}"><a href="">Sophrologie</a></li>
-                    <li class="nav-link {{ app.request.attributes.get('_route') == "app_seances" ? "active" }}"><a href="">Déroulement des séances</a></li>
-                    <li class="nav-link {{ app.request.attributes.get('_route') == "app_qui_suis_je" ? "active" }}"><a href="">Qui suis-je</a></li>
-                    <li class="nav-link {{ app.request.attributes.get('_route') == "app_tarifs" ? "active" }}"><a href="">Tarifs</a></li>
-                    <li class="nav-link {{ app.request.attributes.get('_route') == "app_contact" ? "active" }}"><a href="">Contact</a></li>
+                    <li class="nav-link {{ app.request.attributes.get('_route') == "app_index" ? "active" }}"><a href="{{ path("app_index") }}">Accueil</a></li>
+                    <li class="nav-link {{ app.request.attributes.get('_route') == "app_sophrologie" ? "active" }}"><a href="{{ path("app_sophrologie") }}">Sophrologie</a></li>
+                    <li class="nav-link {{ app.request.attributes.get('_route') == "app_seances" ? "active" }}"><a href="{{ path("app_seances") }}">Déroulement des séances</a></li>
+                    <li class="nav-link {{ app.request.attributes.get('_route') == "app_qui_suis_je" ? "active" }}"><a href="{{ path("app_qui_suis_je") }}">Qui suis-je</a></li>
+                    <li class="nav-link {{ app.request.attributes.get('_route') == "app_tarifs" ? "active" }}"><a href="{{ path("app_tarifs") }}">Tarifs</a></li>
+                    <li class="nav-link {{ app.request.attributes.get('_route') == "app_contact" ? "active" }}"><a href="{{ path("app_contact") }}">Contact</a></li>
                 </ul>
             </nav>
             {% block body %}{% endblock %}

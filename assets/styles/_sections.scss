@@ -5,3 +5,26 @@
   justify-content: center;
   align-items: center;
 }
+
+.main-container {
+  width: 100%;
+  margin-top: 15vh;
+  margin-bottom: 5rem;
+
+  @media screen and (min-width: $lg) {
+    margin-top: 30vh;
+  }
+
+  h1 {
+    margin-bottom: 5rem;
+  }
+
+  section {
+    margin: 2rem 0;
+
+    .full-width {
+      width: 100%;
+    }
+  }
+}
+

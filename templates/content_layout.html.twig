@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="main-container text-center">
+        <h1 class="text-uppercase">{% block content_title %}{% endblock %}</h1>
+
+        {% block content %}{% endblock %}
+    </div>
+{% endblock %}
