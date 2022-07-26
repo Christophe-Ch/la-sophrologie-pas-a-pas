@@ -121,7 +121,7 @@ nav {
       margin-inline: 15px;
       position: relative;
 
-      background: linear-gradient(to bottom, $dark_terra_cotta, $antique_fuchsia);
+      background: linear-gradient(to bottom, $primary_color, $secondary_color);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
 
@@ -131,7 +131,7 @@ nav {
         height: 4px;
         width: 4px;
         border-radius: 50%;
-        background: $dark_terra_cotta;
+        background: $primary_color;
         top: 50%;
         left: -17px;
       }
