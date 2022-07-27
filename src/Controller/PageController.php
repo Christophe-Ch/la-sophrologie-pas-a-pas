@@ -41,6 +41,6 @@ class PageController extends AbstractController
     #[Route('/contact', name: 'app_contact')]
     public function contact(): Response
     {
-        return $this->render('sophrologie.html.twig');
+        return $this->render('contact.html.twig');
     }
 }

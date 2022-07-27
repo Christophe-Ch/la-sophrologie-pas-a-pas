@@ -1,7 +1,11 @@
 // COLORS
-$primary_color: #d16666;
+$primary_color: #D16666;
 $secondary_color: #9D548A;
 $light_color: #FCFAE8;
+
+$alpha_25_primary_color: rgba(209, 102, 102, .25);
+$alpha_50_primary_color: rgba(209, 102, 102, .5);
+$alpha_75_primary_color: rgba(209, 102, 102, .75);
 
 // FONT SIZE
 $text_xs: 0.75rem;
