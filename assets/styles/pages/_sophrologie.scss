@@ -40,24 +40,6 @@
     background: linear-gradient(to right, $secondary_color, $primary_color);
     color: $light_color;
   }
-
-  img, .bg-cover {
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: calc(100% + 5rem);
-    width: 100%;
-  }
-
-  img {
-    object-fit: cover;
-    z-index: -2;
-  }
-
-  .bg-cover {
-    z-index: -1;
-    background: rgba(0,0,0,.75);
-  }
 }
 
 @media screen and (min-width: $lg) {
@@ -99,6 +81,7 @@
       }
 
       img {
+        position: absolute;
         top: 50%;
         left: 100%;
         transform: translate(calc(-100% + 4rem), -50%);
