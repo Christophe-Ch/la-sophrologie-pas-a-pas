@@ -1,0 +1,28 @@
+{% extends 'content_layout.html.twig' %}
+
+{% block title %}Qui suis-je ? | Anne Avenel Dubois | Saint-Aignan-Sur-Ry{% endblock %}
+
+{% block content_title %}Qui suis-je ?{% endblock %}
+
+{% block content %}
+    <section class="p-3 who-am-i-section d-lg-flex flex-lg-row-reverse align-items-stretch">
+        <div class="col-lg-6 d-lg-flex justify-content-center">
+            <div class="content-container">
+                <p>
+                    Enseignante en école élémentaire pendant 20 ans, j'ai souhaité quitter l'Education Nationale pour accompagner autrement les enfants et leurs parents.
+                </p>
+                <p>
+                    Ayant à cœur d'améliorer le bien-être de la famille, j'ai suivi une formation en sophrologie, complétée par une spécialisation "Enfance" à l'Institut de Formation en Sophrologie de Catherine Aliotta (Paris X).
+                </p>
+                <p>
+                    Je suis certifiée RNCP (Répertoire National de la Certification Professionnelle), certification professionnelle dont le niveau de qualification est reconnu par l'Etat. Je suis également membre de la Chambre Syndicale de Sophrologie.
+                </p>
+            </div>
+        </div>
+        <div class="col-lg-6 d-lg-flex justify-content-center align-items-center">
+            <div class="mt-5 picture-container">
+                <img src="{{ asset('build/images/me.jpg') }}" alt="">
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -29,7 +29,7 @@ class PageController extends AbstractController
     #[Route('/qui-suis-je', name: 'app_qui_suis_je')]
     public function quiSuisJe(): Response
     {
-        return $this->render('sophrologie.html.twig');
+        return $this->render('qui_suis_je.html.twig');
     }
 
     #[Route('/tarifs', name: 'app_tarifs')]
