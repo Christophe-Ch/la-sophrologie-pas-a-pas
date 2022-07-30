@@ -43,6 +43,8 @@ nav {
   top: 2rem;
   right: 2rem;
 
+  cursor: pointer;
+
   span {
     display: block;
     height: 2px;
@@ -90,15 +92,40 @@ nav {
     font-size: $text_xl;
     line-height: 2rem;
     margin: 1rem 0;
+    position: relative;
 
     a {
       text-decoration: none;
       color: inherit;
     }
+
+    &::after {
+      content: "";
+      position: absolute;
+      height: 25%;
+      width: 0%;
+      background: linear-gradient(to right, #CF5151, #9D548A);
+      opacity: .3;
+      right: -5px;
+      bottom: 0;
+      transition: .3s;
+    }
+
+    &.active::after {
+      opacity: 1;
+      width: 75%;
+      height: 1px;
+      right: 50%;
+      transform: translateX(50%);
+    }
+
+    &:hover::after {
+      width: 75%;
+    }
   }
 }
 
-.content-layout {
+.content-layout, .home-layout {
   @media screen and (min-width: $xl) {
     nav {
       padding: 1rem 0;
@@ -120,7 +147,6 @@ nav {
 
       .nav-link {
         margin-inline: 15px;
-        position: relative;
 
         background: linear-gradient(to bottom, $primary_color, $secondary_color);
         -webkit-background-clip: text;
@@ -135,30 +161,6 @@ nav {
           background: $primary_color;
           top: 50%;
           left: -17px;
-        }
-
-        &::after {
-          content: "";
-          position: absolute;
-          height: 25%;
-          width: 0%;
-          background: linear-gradient(to right, #CF5151, #9D548A);
-          opacity: .3;
-          right: -5px;
-          bottom: 0;
-          transition: .3s;
-        }
-
-        &.active::after {
-          opacity: 1;
-          width: 75%;
-          height: 1px;
-          right: 50%;
-          transform: translateX(50%);
-        }
-
-        &:hover::after {
-          width: 75%;
         }
       }
     }
