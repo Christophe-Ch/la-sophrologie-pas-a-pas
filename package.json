@@ -1,15 +1,4 @@
 {
-    "devDependencies": {
-        "@hotwired/stimulus": "^3.0.0",
-        "@symfony/stimulus-bridge": "^3.2.0",
-        "@symfony/webpack-encore": "^3.0.0",
-        "core-js": "^3.23.0",
-        "file-loader": "^6.0.0",
-        "node-sass": "^7.0.1",
-        "regenerator-runtime": "^0.13.9",
-        "sass-loader": "^13.0.2",
-        "webpack-notifier": "^1.15.0"
-    },
     "license": "UNLICENSED",
     "private": true,
     "scripts": {
@@ -17,11 +6,20 @@
         "dev": "encore dev",
         "watch": "encore dev --watch",
         "build": "encore production --progress",
-        "heroku-postbuild" : "node_modules/.bin/encore production"
+        "heroku-postbuild": "node_modules/.bin/encore production"
     },
     "dependencies": {
+        "@hotwired/stimulus": "^3.1.0",
+        "@symfony/stimulus-bridge": "^3.2.1",
+        "@symfony/webpack-encore": "^3.0.0",
         "autoprefixer": "^10.4.7",
         "bootstrap": "^5.2.0",
-        "postcss-loader": "^7.0.1"
+        "core-js": "^3.24.1",
+        "file-loader": "^6.2.0",
+        "node-sass": "^7.0.1",
+        "postcss-loader": "^7.0.1",
+        "regenerator-runtime": "^0.13.9",
+        "sass-loader": "^13.0.2",
+        "webpack-notifier": "^1.15.0"
     }
 }
