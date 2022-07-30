@@ -17,7 +17,7 @@
         {% endblock %}
     </head>
     <body class="bg_light_color">
-        <div class="app-container">
+        <div class="{% block layout %}{% endblock %}">
             <nav>
                 <input type="checkbox" name="nav_toggle" id="nav_toggle" class="nav-toggle">
                 <label for="nav_toggle" class="nav-toggle-label">

@@ -98,66 +98,68 @@ nav {
   }
 }
 
-@media screen and (min-width: $xl) {
-  nav {
-    padding: 1rem 0;
-  }
+.content-layout {
+  @media screen and (min-width: $xl) {
+    nav {
+      padding: 1rem 0;
+    }
 
-  .nav-toggle-label {
-    display: none;
-  }
+    .nav-toggle-label {
+      display: none;
+    }
 
-  .nav-links {
-    position: static;
-    height: fit-content;
+    .nav-links {
+      position: static;
+      height: fit-content;
 
-    background: transparent;
+      background: transparent;
 
-    flex-direction: row;
+      flex-direction: row;
 
-    text-align: center;
+      text-align: center;
 
-    .nav-link {
-      margin-inline: 15px;
-      position: relative;
+      .nav-link {
+        margin-inline: 15px;
+        position: relative;
 
-      background: linear-gradient(to bottom, $primary_color, $secondary_color);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+        background: linear-gradient(to bottom, $primary_color, $secondary_color);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
 
-      &:not(:first-child)::before {
-        content: '';
-        position: absolute;
-        height: 4px;
-        width: 4px;
-        border-radius: 50%;
-        background: $primary_color;
-        top: 50%;
-        left: -17px;
-      }
+        &:not(:first-child)::before {
+          content: '';
+          position: absolute;
+          height: 4px;
+          width: 4px;
+          border-radius: 50%;
+          background: $primary_color;
+          top: 50%;
+          left: -17px;
+        }
 
-      &::after {
-        content: "";
-        position: absolute;
-        height: 25%;
-        width: 0%;
-        background: linear-gradient(to right, #CF5151, #9D548A);
-        opacity: .3;
-        right: -5px;
-        bottom: 0;
-        transition: .3s;
-      }
+        &::after {
+          content: "";
+          position: absolute;
+          height: 25%;
+          width: 0%;
+          background: linear-gradient(to right, #CF5151, #9D548A);
+          opacity: .3;
+          right: -5px;
+          bottom: 0;
+          transition: .3s;
+        }
 
-      &.active::after {
-        opacity: 1;
-        width: 75%;
-        height: 1px;
-        right: 50%;
-        transform: translateX(50%);
-      }
+        &.active::after {
+          opacity: 1;
+          width: 75%;
+          height: 1px;
+          right: 50%;
+          transform: translateX(50%);
+        }
 
-      &:hover::after {
-        width: 75%;
+        &:hover::after {
+          width: 75%;
+        }
       }
     }
   }
