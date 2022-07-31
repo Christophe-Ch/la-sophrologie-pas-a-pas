@@ -1,0 +1,191 @@
+{% extends 'content_layout.html.twig' %}
+
+{% block title %}Déroulement des séances | Anne Avenel Dubois | Saint-Aignan-Sur-Ry{% endblock %}
+
+{% block content_title %}Déroulement des séances{% endblock %}
+
+{% block content %}
+    <section class="p-3 main-section">
+        <p class="text-lg-start text-decoration-underline">
+            Une séance dure environ 1 heure et se compose de :
+        </p>
+        <ul>
+            <li>un dialogue préalable</li>
+            <li>des exercices de <strong>relaxation dynamique</strong> et de <strong>respiration</strong></li>
+            <li>un exercice de <strong>relâchement musculaire</strong> et une <strong>visualisation</strong> d'images agréables.</li>
+            <li>un temps de parole qui laisse libre cours à l'<strong>expression de ses ressentis</strong> pendant la séance.</li>
+        </ul>
+        <p class="text-lg-start text-decoration-underline">
+            Le travail repose sur des exercices :
+        </p>
+        <ul>
+            <li>qui associent des <strong>mouvements doux</strong> (les muscles sont mis en mouvement pour mieux percevoir les sensations du corps) à une <strong>respiration contrôlée</strong> (élément essentiel de la pratique sophrologique)  pour relâcher ses tensions et canaliser ses pensées et ses émotions.</li>
+            <li>de <strong>projections mentales positives</strong> pour stimuler son mental et son potentiel.</li>
+        </ul>
+    </section>
+    <section class="p-3 main-section">
+        <h2 class="text-uppercase">Types de séances</h2>
+        <p>Découvrez les différents types de séances disponibles :</p>
+
+        <button class="link link-fill my-3 mx-lg-3" id="cta_individual"><span>Séances individuelles</span></button>
+        <button class="link link-fill my-3 mx-lg-3" id="cta_group_adult"><span>Séances de groupe pour les adultes</span></button>
+        <button class="link link-fill my-3 mx-lg-3" id="cta_group_teenager"><span>Séances de groupe pour les adolescents</span></button>
+        <button class="link link-fill my-3 mx-lg-3" id="cta_group_exam"><span>Séances de groupe pour préparer un examen</span></button>
+        <button class="link link-fill my-3 mx-lg-3" id="cta_group_kid"><span>Séances de groupe pour les enfants</span></button>
+    </section>
+
+    <div class="modal" id="type_modal" style="display: none;">
+        <button id="modal_close" class="modal-close-btn">
+            <span></span>
+            <span></span>
+        </button>
+        <section class="modal-content p-5 text-start" id="content_individual" style="display: none;">
+            <h2>Séances individuelles</h2>
+            <p class="fw_bold">Les séances individuelles, adaptées à vos besoins, sont construites dans une optique de développement personnel mais aussi thérapeutique.</p>
+            <p>La première séance dure environ 1h30. Elle se découpe en trois temps :</p>
+            <ul>
+                <li>dialogue : pour comprendre votre demande, vos attentes, vos besoins...</li>
+                <li>temps de pratique : exercices de découverte de la sophrologie</li>
+                <li>temps d'échange : pour exprimer ses ressentis</li>
+            </ul>
+            <p>A l'issue de cette séance, j'élabore un protocole d'accompagnement personnalisé afin d'adapter les séances et les exercices à vos besoins et à votre objectif. </p>
+            <p class="fw_bold">Des fiches descriptives des exercices ainsi que l'enregistrement des visualisations vous sont fournies afin de faciliter votre entrainement personnel.</p>
+            <p class="fw_bold">Une séance dure environ 1 heure. </p>
+            <p class="fw_bold">Un accompagnement individuel dure 2 à 3 mois (6 à 12 séances).</p>
+        </section>
+        <section class="modal-content p-5 text-start" id="content_group_adult" style="display: none;">
+            <h2>Séances de groupe pour les adultes</h2>
+            <p>Les séances de groupe de sophrologie sont ouvertes à toutes et tous.</p>
+            <p>Cette activité proposée en petits groupes vous mènera vers un mieux-être au quotidien. Vous apprendrez à vous détendre et à gérer les difficultés de votre vie quotidienne. Découvrez cette discipline qui vous permettra d'être plus autonome dans la gestion de votre stress, pour acquérir un mental plus fort et gagner en sérénité.</p>
+            <h3>Pour quoi ?</h3>
+            <p>Une pratique régulière de la sophrologie permet de :</p>
+            <ul>
+                <li>libérer son esprit des préoccupations qui forment tensions physiques et tensions mentales.</li>
+                <li>prendre du recul sur les situations et réinterpréter positivement les événements.</li>
+                <li>développer sa capacité à mieux gérer le stress, les émotions.</li>
+                <li>préserver son capital santé, renforcer son système immunitaire.</li>
+                <li>améliorer son sommeil.</li>
+                <li>développer sa confiance en soi.</li>
+                <li>...</li>
+            </ul>
+            <p>La sophrologie réside dans la répétition. Il est donc nécessaire de pratiquer régulièrement.</p>
+            <h3>Thèmes proposés</h3>
+            <ul>
+                <li>Découvrir la sophrologie</li>
+                <li>Réapprendre à respirer</li>
+                <li>Evacuer les tensions </li>
+                <li>Se détendre</li>
+                <li>Lâcher prise</li>
+                <li>Gérer ses émotions</li>
+                <li>Améliorer sa concentration</li>
+                <li>Améliorer son sommeil</li>
+                <li>Retrouver la vitalité</li>
+                <li>Vivre le moment présent</li>
+                <li>Renforcer la confiance en soi, l'estime de soi</li>
+            </ul>
+            <h3>Informations pratiques</h3>
+            <p>Les séances se déroulent dans mon cabinet au :</p>
+            <p>
+                140 rue Sainte Anne<br>
+                76 116 SAINT AIGNAN SUR RY
+            </p>
+            <p>Groupes de 4 personnes maximum.</p>
+            <p>Séances d'une heure tous les 15 jours (soit 16 séances dans l'année) : 60 euros par trimestre et par personne.</p>
+            <p>
+                Au choix :<br>
+                mercredi ; jeudi ou vendredi de 10h30 à 11h30 ou 14h30 à 15h30 ou de 18h30 à 19h30.
+            </p>
+            <p>Première séance : semaine du 12 septembre 2022 (séance de découverte gratuite).</p>
+        </section>
+        <section class="modal-content p-5 text-start" id="content_group_teenager" style="display: none;">
+            <h2>Séances de groupe pour les adolescents</h2>
+            <h3 class="mt-5">Pour quoi ?</h3>
+            <ul>
+                <li>Prendre conscience du stress, des tensions (physiques, mentales, relationnelles, ...) et acquérir des outils pour mieux les gérer.</li>
+                <li>Savoir prendre de la distance par rapport à ce qui gêne, ce qui perturbe.</li>
+                <li>Développer ses capacités d'attention et de concentration.</li>
+                <li>Prendre confiance en soi et en ses possibilités.</li>
+                <li>Mieux se connaitre, découvrir une nouvelle façon d'appréhender le corps par la relaxation.</li>
+                <li>Favoriser le respect de soi et des autres.</li>
+                <li>Créer un espace d'écoute.</li>
+                <li>Trouver sa place dans le groupe.</li>
+                <li>...</li>
+            </ul>
+            <h3>Informations pratiques</h3>
+            <p>Les séances se déroulent dans mon cabinet au :</p>
+            <p>
+                140 rue Sainte Anne<br>
+                76 116 SAINT AIGNAN SUR RY
+            </p>
+            <p>Groupes de 4 personnes maximum.</p>
+            <p>Séances de 45 minutes tous les 15 jours (soit 13 séances) : 35 euros par trimestre et par personne.</p>
+            <p>Le mercredi de 17h à 17h45.</p>
+            <p>Première séance le mercredi 5 octobre 2022 (séance de découverte gratuite).</p>
+        </section>
+        <section class="modal-content p-5 text-start" id="content_group_exam" style="display: none;">
+            <h2>Séances de groupe pour préparer un examen</h2>
+            <h3 class="mt-5">Pour quoi ?</h3>
+            <ul>
+                <li>Chasser le stress, les peurs, les angoisses...</li>
+                <li>Installer le calme</li>
+                <li>Recharger les batteries</li>
+                <li>Améliorer concentration et mémoire</li>
+                <li>Prendre du recul</li>
+                <li>Renforcer la confiance en soi</li>
+                <li>Se projeter calme et confiant au moment de l'examen</li>
+                <li>...</li>
+            </ul>
+            <h3>Informations pratiques</h3>
+            <p>Les séances se déroulent dans mon cabinet au :</p>
+            <p>
+                140 rue Sainte Anne<br>
+                76 116 SAINT AIGNAN SUR RY
+            </p>
+            <p>Groupes de 4 personnes maximum.</p>
+            <p>11 séances d'une heure chaque semaine : 110 euros par personne.</p>
+            <p>
+                Début de la première session : samedi 24 septembre 2022.<br>
+                Début de la seconde session : samedi 7 janvier 2022.<br>
+                (Première séance de découverte gratuite).
+            </p>
+            <p>Le samedi de 11h00 à 12h00.</p>
+        </section>
+        <section class="modal-content p-5 text-start" id="content_group_kid" style="display: none;">
+            <h2>Séances de groupe pour les enfants</h2>
+            <h3 class="mt-5">Informations pratiques</h3>
+            <p>Les séances se déroulent dans mon cabinet au :</p>
+            <p>
+                140 rue Sainte Anne<br>
+                76 116 SAINT AIGNAN SUR RY
+            </p>
+            <p>Groupes de 4 personnes maximum.</p>
+            <p>Séances de 30 minutes chaque semaine (soit 25 séances) : 45 euros par trimestre et par personne.</p>
+            <p>Le mercredi de 16h15 à 16h45.</p>
+            <p>Première séance : mercredi 28 septembre 2022 (séance de découverte gratuite).</p>
+        </section>
+    </div>
+
+    <script>
+        const modal = document.getElementById("type_modal");
+        const modalCloseButton = document.getElementById("modal_close");
+        let scroll = 0;
+        let currentType = "";
+
+        ["individual", "group_adult", "group_teenager", "group_exam", "group_kid"].forEach(type =>  {
+           document.getElementById(`cta_${type}`).addEventListener("click", () => {
+               scroll = window.scrollY;
+               modal.style.display = "block";
+               document.body.classList.toggle("modal-open", true);
+               document.getElementById(`content_${type}`).style.display = "block";
+               currentType = type;
+           }) ;
+        });
+
+        modalCloseButton.addEventListener("click", () => {
+            modal.style.display = "none";
+            document.body.classList.toggle('modal-open', false);
+            document.getElementById(`content_${currentType}`).style.display = "none";
+            window.scrollTo(0, scroll);
+        })
+    </script>
+{% endblock %}

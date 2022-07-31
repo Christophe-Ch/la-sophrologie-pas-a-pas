@@ -5,6 +5,7 @@
   justify-content: center;
   align-items: center;
   transition: .3s;
+  max-width: 100%;
 }
 
 .link-outline {
@@ -51,4 +52,11 @@
   .link {
     font-size: 1.2rem;
   }
+}
+
+button.link {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
 }

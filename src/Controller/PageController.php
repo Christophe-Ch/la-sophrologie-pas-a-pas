@@ -23,7 +23,7 @@ class PageController extends AbstractController
     #[Route('/seances', name: 'app_seances')]
     public function seances(): Response
     {
-        return $this->render('sophrologie.html.twig');
+        return $this->render('seances.html.twig');
     }
 
     #[Route('/qui-suis-je', name: 'app_qui_suis_je')]

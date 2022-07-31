@@ -26,10 +26,11 @@
 
   section {
     margin: 2rem 0;
+    max-width: 100%;
+    box-sizing: border-box;
 
     .full-width {
       width: 100%;
     }
   }
 }
-
