@@ -8,11 +8,3 @@ footer {
     color: $primary_color;
   }
 }
-
-.split-layout {
-  @media screen and (min-width: $lg){
-    footer {
-      left: 75%;
-    }
-  }
-}
