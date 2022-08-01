@@ -5,23 +5,32 @@
 {% block content_title %}Déroulement des séances{% endblock %}
 
 {% block content %}
-    <section class="p-3 main-section">
-        <p class="text-lg-start text-decoration-underline">
-            Une séance dure environ 1 heure et se compose de :
-        </p>
-        <ul>
-            <li>un dialogue préalable</li>
-            <li>des exercices de <strong>relaxation dynamique</strong> et de <strong>respiration</strong></li>
-            <li>un exercice de <strong>relâchement musculaire</strong> et une <strong>visualisation</strong> d'images agréables.</li>
-            <li>un temps de parole qui laisse libre cours à l'<strong>expression de ses ressentis</strong> pendant la séance.</li>
-        </ul>
-        <p class="text-lg-start text-decoration-underline">
-            Le travail repose sur des exercices :
-        </p>
-        <ul>
-            <li>qui associent des <strong>mouvements doux</strong> (les muscles sont mis en mouvement pour mieux percevoir les sensations du corps) à une <strong>respiration contrôlée</strong> (élément essentiel de la pratique sophrologique)  pour relâcher ses tensions et canaliser ses pensées et ses émotions.</li>
-            <li>de <strong>projections mentales positives</strong> pour stimuler son mental et son potentiel.</li>
-        </ul>
+    <section class="p-3 img-text-section d-lg-flex flex-lg-row align-items-stretch">
+        <div class="col-lg-6 d-lg-flex justify-content-center align-items-center">
+            <div class="content-container">
+                <p class="text-lg-start text-decoration-underline">
+                    Une séance dure environ 1 heure et se compose de :
+                </p>
+                <ul>
+                    <li>un dialogue préalable</li>
+                    <li>des exercices de <strong>relaxation dynamique</strong> et de <strong>respiration</strong></li>
+                    <li>un exercice de <strong>relâchement musculaire</strong> et une <strong>visualisation</strong> d'images agréables.</li>
+                    <li>un temps de parole qui laisse libre cours à l'<strong>expression de ses ressentis</strong> pendant la séance.</li>
+                </ul>
+                <p class="text-lg-start text-decoration-underline">
+                    Le travail repose sur des exercices :
+                </p>
+                <ul>
+                    <li>qui associent des <strong>mouvements doux</strong> (les muscles sont mis en mouvement pour mieux percevoir les sensations du corps) à une <strong>respiration contrôlée</strong> (élément essentiel de la pratique sophrologique)  pour relâcher ses tensions et canaliser ses pensées et ses émotions.</li>
+                    <li>de <strong>projections mentales positives</strong> pour stimuler son mental et son potentiel.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-lg-6 d-lg-flex justify-content-center align-items-center">
+            <div class="mt-5 mt-lg-0 picture-container">
+                <img src="{{ asset('build/images/deroulement.jpg') }}" alt="">
+            </div>
+        </div>
     </section>
     <section class="p-3 main-section">
         <h2 class="text-uppercase">Types de séances</h2>
@@ -40,6 +49,8 @@
             <span></span>
         </button>
         <section class="modal-content p-5 text-start" id="content_individual" style="display: none;">
+            <img src="{{ asset("build/images/individual.jpg") }}" class="modal-background" alt="">
+            <div class="bg-cover"></div>
             <h2>Séances individuelles</h2>
             <p class="fw_bold">Les séances individuelles, adaptées à vos besoins, sont construites dans une optique de développement personnel mais aussi thérapeutique.</p>
             <p>La première séance dure environ 1h30. Elle se découpe en trois temps :</p>
@@ -54,6 +65,8 @@
             <p class="fw_bold">Un accompagnement individuel dure 2 à 3 mois (6 à 12 séances).</p>
         </section>
         <section class="modal-content p-5 text-start" id="content_group_adult" style="display: none;">
+            <img src="{{ asset("build/images/group_adult.jpg") }}" class="modal-background" alt="">
+            <div class="bg-cover"></div>
             <h2>Séances de groupe pour les adultes</h2>
             <p>Les séances de groupe de sophrologie sont ouvertes à toutes et tous.</p>
             <p>Cette activité proposée en petits groupes vous mènera vers un mieux-être au quotidien. Vous apprendrez à vous détendre et à gérer les difficultés de votre vie quotidienne. Découvrez cette discipline qui vous permettra d'être plus autonome dans la gestion de votre stress, pour acquérir un mental plus fort et gagner en sérénité.</p>
@@ -98,6 +111,8 @@
             <p>Première séance : semaine du 12 septembre 2022 (séance de découverte gratuite).</p>
         </section>
         <section class="modal-content p-5 text-start" id="content_group_teenager" style="display: none;">
+            <img src="{{ asset("build/images/group_teenager.jpg") }}" class="modal-background" alt="">
+            <div class="bg-cover"></div>
             <h2>Séances de groupe pour les adolescents</h2>
             <h3 class="mt-5">Pour quoi ?</h3>
             <ul>
@@ -123,6 +138,8 @@
             <p>Première séance le mercredi 5 octobre 2022 (séance de découverte gratuite).</p>
         </section>
         <section class="modal-content p-5 text-start" id="content_group_exam" style="display: none;">
+            <img src="{{ asset("build/images/group_exam.jpg") }}" class="modal-background" alt="">
+            <div class="bg-cover"></div>
             <h2>Séances de groupe pour préparer un examen</h2>
             <h3 class="mt-5">Pour quoi ?</h3>
             <ul>
@@ -151,6 +168,8 @@
             <p>Le samedi de 11h00 à 12h00.</p>
         </section>
         <section class="modal-content p-5 text-start" id="content_group_kid" style="display: none;">
+            <img src="{{ asset("build/images/group_kid.jpg") }}" class="modal-background" alt="">
+            <div class="bg-cover"></div>
             <h2>Séances de groupe pour les enfants</h2>
             <h3 class="mt-5">Informations pratiques</h3>
             <p>Les séances se déroulent dans mon cabinet au :</p>
