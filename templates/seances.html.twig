@@ -36,11 +36,11 @@
         <h2 class="text-uppercase">Types de séances</h2>
         <p>Découvrez les différents types de séances disponibles :</p>
 
-        <button class="link link-fill my-3 mx-lg-3" id="cta_individual"><span>Séances individuelles</span></button>
-        <button class="link link-fill my-3 mx-lg-3" id="cta_group_adult"><span>Séances de groupe pour les adultes</span></button>
-        <button class="link link-fill my-3 mx-lg-3" id="cta_group_teenager"><span>Séances de groupe pour les adolescents</span></button>
-        <button class="link link-fill my-3 mx-lg-3" id="cta_group_exam"><span>Séances de groupe pour préparer un examen</span></button>
-        <button class="link link-fill my-3 mx-lg-3" id="cta_group_kid"><span>Séances de groupe pour les enfants</span></button>
+        <button class="link link-fill my-3 mx-md-3" id="cta_individual"><span>Séances individuelles</span></button>
+        <button class="link link-fill my-3 mx-md-3" id="cta_group_adult"><span>Séances de groupe pour les adultes</span></button>
+        <button class="link link-fill my-3 mx-md-3" id="cta_group_teenager"><span>Séances de groupe pour les adolescents</span></button>
+        <button class="link link-fill my-3 mx-md-3" id="cta_group_exam"><span>Séances de groupe pour préparer un examen</span></button>
+        <button class="link link-fill my-3 mx-md-3" id="cta_group_kid"><span>Séances de groupe pour les enfants</span></button>
     </section>
 
     <div class="modal" id="type_modal" style="display: none;">
@@ -190,14 +190,20 @@
         let scroll = 0;
         let currentType = "";
 
+        const showModal = (type) => {
+            scroll = window.scrollY;
+            modal.style.display = "block";
+            document.body.classList.toggle("modal-open", true);
+            document.getElementById(`content_${type}`).style.display = "block";
+            currentType = type;
+        }
+
+        const type = "{{ app.request.get('type') }}";
+
+        if (type !== "") showModal(type);
+
         ["individual", "group_adult", "group_teenager", "group_exam", "group_kid"].forEach(type =>  {
-           document.getElementById(`cta_${type}`).addEventListener("click", () => {
-               scroll = window.scrollY;
-               modal.style.display = "block";
-               document.body.classList.toggle("modal-open", true);
-               document.getElementById(`content_${type}`).style.display = "block";
-               currentType = type;
-           }) ;
+           document.getElementById(`cta_${type}`).addEventListener("click", () => showModal(type));
         });
 
         modalCloseButton.addEventListener("click", () => {

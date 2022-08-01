@@ -35,12 +35,18 @@ class PageController extends AbstractController
     #[Route('/tarifs', name: 'app_tarifs')]
     public function tarifs(): Response
     {
-        return $this->render('sophrologie.html.twig');
+        return $this->render('tarifs.html.twig');
     }
 
     #[Route('/contact', name: 'app_contact')]
     public function contact(): Response
     {
         return $this->render('contact.html.twig');
+    }
+
+    #[Route('/mentions-legales', name: 'app_mentions_legales')]
+    public function mentionsLegales(): Response
+    {
+        return $this->render('mentions_legales.html.twig');
     }
 }
