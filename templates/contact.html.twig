@@ -6,31 +6,35 @@
 
 {% block content %}
     <section class="p-3 form-section">
-        <form action="">
+        {{ form_start(form) }}
             <div class="row">
                 <div class="form-group col-12 col-lg-6">
-                    <label for="name" class="d-block text_lg text-start mt-3 mb-2 text-uppercase">Nom</label>
-                    <input type="text" name="name" id="name" class="text_lg">
+                    {{ form_label(form.name, null, {'label_attr': {'class': 'd-block text_lg text-start mt-3 mb-2 text-uppercase'}}) }}
+                    {{ form_widget(form.name, {'attr': {'class': 'text_lg'}}) }}
+                    {{ form_errors(form.name) }}
                 </div>
                 <div class="form-group col-12 col-lg-6">
-                    <label for="email" class="d-block text_lg text-start mt-3 mb-2 text-uppercase">Email</label>
-                    <input type="text" name="email" id="email" class="text_lg">
+                    {{ form_label(form.email, null, {'label_attr': {'class': 'd-block text_lg text-start mt-3 mb-2 text-uppercase'}}) }}
+                    {{ form_widget(form.email, {'attr': {'class': 'text_lg'}}) }}
+                    {{ form_errors(form.email) }}
                 </div>
             </div>
             <div class="form-group">
-                <label for="topic" class="d-block text_lg text-start mt-3 mb-2 text-uppercase">Sujet</label>
-                <input type="text" name="topic" id="topic" class="text_lg">
+                {{ form_label(form.subject, null, {'label_attr': {'class': 'd-block text_lg text-start mt-3 mb-2 text-uppercase'}}) }}
+                {{ form_widget(form.subject, {'attr': {'class': 'text_lg'}}) }}
+                {{ form_errors(form.subject) }}
             </div>
             <div class="form-group">
-                <label for="message" class="d-block text_lg text-start mt-3 mb-2 text-uppercase">Message</label>
-                <textarea name="message" id="message" rows="10" class="text_lg"></textarea>
+                {{ form_label(form.message, null, {'label_attr': {'class': 'd-block text_lg text-start mt-3 mb-2 text-uppercase'}}) }}
+                {{ form_widget(form.message, {'attr': {'class': 'text_lg', 'rows': 10}}) }}
+                {{ form_errors(form.message) }}
             </div>
             <div class="form-group mt-2 mt-lg-4">
                 <button type="submit" class="fw_bold text_lg text-uppercase">Envoyer</button>
             </div>
-        </form>
+        {{ form_end(form) }}
     </section>
-    <section class="p-3 info-section">
+    <section class="info-section">
         <div class="p-4 info-container">
             <div>
                 <div>

@@ -2,8 +2,12 @@
 
 namespace App\Controller;
 
+use App\Entity\Mail;
+use App\MailType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 class PageController extends AbstractController
@@ -38,10 +42,21 @@ class PageController extends AbstractController
         return $this->render('tarifs.html.twig');
     }
 
-    #[Route('/contact', name: 'app_contact')]
-    public function contact(): Response
+    #[Route('/contact', name: 'app_contact', methods: ['GET', 'POST'])]
+    public function contact(Request $request, MailerInterface $mailer): Response
     {
-        return $this->render('contact.html.twig');
+        $mail = new Mail();
+        $form = $this->createForm(MailType::class, $mail);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid())
+        {
+            dd($mail);
+        }
+
+        return $this->renderForm('contact.html.twig', [
+            'form' => $form,
+        ]);
     }
 
     #[Route('/mentions-legales', name: 'app_mentions_legales')]
