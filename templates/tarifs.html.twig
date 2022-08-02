@@ -5,34 +5,35 @@
 {% block content_title %}Tarifs{% endblock %}
 
 {% block content %}
-    <section class="p-3 main-section">
+    <section class="p-3 mb-0 main-section">
         <h2>Consultations sur rendez-vous</h2>
-        <p>
-            <span class="text-decoration-underline fw_bold">Séances individuelles</span><br>
-            45 euros pour les adultes et les adolescents<br>
-            35 euros pour les enfants (école élémentaire)
-        </p>
+        <div class="d-flex flex-column flex-md-row justify-content-center">
+            <p class="mt-5 m-md-5">
+                <span class="text-decoration-underline fw_bold">Séances individuelles</span><br>
+                Adultes et adolescents : 45€<br>
+                Enfants : 35€
+            </p>
+            <p class="m-0 m-md-5">
+                <span class="text-decoration-underline fw_bold">Durée des séances</span><br>
+                Adultes : 1h<br>
+                Adolescents : 45 mn à 1h<br>
+                Enfants : 30 à 45 mn
+            </p>
+        </div>
         <p>
             <span class="text-decoration-underline fw_bold">Séances de groupe</span><br>
             Voir aux pages concernées :
         </p>
         <div>
-            <a class="link link-fill my-3 mx-md-3" href="{{ path('app_seances', {type: 'individual'}) }}"><span>Séances individuelles</span></a>
             <a class="link link-fill my-3 mx-md-3" href="{{ path('app_seances', {type: 'group_adult'}) }}"><span>Séances de groupe pour les adultes</span></a>
             <a class="link link-fill my-3 mx-md-3" href="{{ path('app_seances', {type: 'group_teenager'}) }}"><span>Séances de groupe pour les adolescents</span></a>
-            <a class="link link-fill my-3 mx-md-3" href="{{ path('app_seances', {type: 'group_exam'}) }}"><span>Séances de groupe pour préparer un examen</span></a>
             <a class="link link-fill my-3 mx-md-3" href="{{ path('app_seances', {type: 'group_kid'}) }}"><span>Séances de groupe pour les enfants</span></a>
+            <a class="link link-fill my-3 mx-md-3" href="{{ path('app_seances', {type: 'group_exam'}) }}"><span>Séances de groupe pour préparer un examen</span></a>
         </div>
     </section>
     <section class="p-3 img-text-section d-lg-flex flex-lg-row align-items-stretch">
         <div class="col-lg-6 d-lg-flex justify-content-center align-items-center">
             <div class="content-container">
-                <h2 class="text-lg-start">Durée des séances</h2>
-                <p class="text-lg-start">
-                    <strong>Adultes</strong> : 1 heure<br>
-                    <strong>Adolescents</strong> : 45 minutes à 1 heure<br>
-                    <strong>Enfants</strong> : 30 à 45 minutes
-                </p>
                 <p class="text-lg-start">
                     Certaines mutuelles remboursent les séances individuelles de sophrologie, n'hésitez pas à vous rapprocher de la vôtre pour plus d'informations.
                 </p>
@@ -48,7 +49,22 @@
         </div>
     </section>
     <section class="pb-5 m-lg-auto text-lg-center">
-        <span class="d-block mb-4">Envie d'offrir une séance ?</span>
-        <a href="{{ asset('build/images/carte_cadeau.png') }}" class="link link-fill" download>Télécharger la carte cadeau</a>
+        <h2>Envie d'offrir une ou plusieurs séances ?</h2>
+        <p>Découvrez les modalités.</p>
+        <img src="{{ asset('build/images/carte_cadeau.png') }}" alt="" class="gift-card">
+        <p>
+            <span class="text-decoration-underline fw_bold">2 formules au choix :</span><br>
+            1 séance "Découverte" : 35€<br>
+            3 séances "Détente" : 100€
+        </p>
+        <p>
+            Vous m'informez de votre choix par tél ou par mail et vous effectuez le règlement par chèque ou virement.
+        </p>
+        <p>
+            À réception du règlement, le carte cadeau vous est envoyée par mail. Vous pouvez alors la télécharger et l'offrir à la personne de votre choix.
+        </p>
+        <p>
+            Cette personne prendra contact avec moi afin de fixer un rendez-vous pour la séance.
+        </p>
     </section>
 {% endblock %}

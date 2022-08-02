@@ -2,8 +2,9 @@
 
 namespace App\Controller;
 
-use App\Entity\Mail;
-use App\MailType;
+use App\Entity\Email;
+use App\EmailType;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -45,13 +46,23 @@ class PageController extends AbstractController
     #[Route('/contact', name: 'app_contact', methods: ['GET', 'POST'])]
     public function contact(Request $request, MailerInterface $mailer): Response
     {
-        $mail = new Mail();
-        $form = $this->createForm(MailType::class, $mail);
+        $email = new Email();
+        $form = $this->createForm(EmailType::class, $email);
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid())
         {
-            dd($mail);
+            $message = (new TemplatedEmail())
+                ->from($email->getEmail())
+                ->to("chris.chich@hotmail.fr")
+                ->subject($email->getSubject())
+                ->htmlTemplate('email.html.twig')
+                ->context([
+                    'message' => $email
+                ]);
+
+
+                $mailer->send($message);
         }
 
         return $this->renderForm('contact.html.twig', [

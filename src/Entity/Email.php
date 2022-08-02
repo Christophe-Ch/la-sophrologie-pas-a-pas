@@ -4,7 +4,7 @@ namespace App\Entity;
 
 use Symfony\Component\Validator\Constraints as Assert;
 
-class Mail
+class Email
 {
     #[Assert\NotBlank(message: 'Veuillez entrer votre nom.')]
     protected string $name;

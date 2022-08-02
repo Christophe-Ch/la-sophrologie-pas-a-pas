@@ -1,0 +1,20 @@
+{% apply inline_css %}
+    <style>
+        span {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+    </style>
+{% endapply %}
+
+<h1>Message reçu</h1>
+
+<p>
+    <span>Nom :</span> {{ message.name }}<br>
+    <span>Email :</span> {{ message.email }}
+</p>
+<p>
+    <span>Sujet :</span> {{ message.subject }}<br>
+    <span>Message :</span><br>
+    {{ message.message }}
+</p>
