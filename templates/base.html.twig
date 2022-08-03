@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         {% block stylesheets %}
@@ -15,6 +15,19 @@
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
+
+        <meta name="description" content="{% block description %}{% endblock %}">
+
+        <meta name="og:title" content="{{ block('title') }}">
+        <meta name="og:description" content="Anne Avenel Dubois, sophrologue à Saint-Aignan-sur-Ry, Seine-Maritime (canton de Buchy). La sophrologie est une méthode pour retrouver un bien-être au quotidien. Des séances individuelles ou de groupe sont disponibles.">
+        <meta name="og:url" content="{{ absolute_url(path(app.request.attributes.get('_route'))) }}">
+        <meta name="og:site_name" content="La Sophrologie pas à pas">
+        <meta name="og:type" content="website">
+
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="{{ block('title') }}">
+        <meta name="twitter:description" content="Anne Avenel Dubois, sophrologue à Saint-Aignan-sur-Ry, Seine-Maritime (canton de Buchy). La sophrologie est une méthode pour retrouver un bien-être au quotidien. Des séances individuelles ou de groupe sont disponibles.">
+        <meta name="twitter:image" content="{% block image %}{% endblock %}">
     </head>
     <body class="bg_light_color">
         <div class="app-container">

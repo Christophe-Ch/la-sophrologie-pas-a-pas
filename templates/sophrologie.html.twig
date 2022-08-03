@@ -1,6 +1,7 @@
 {% extends 'content_layout.html.twig' %}
 
 {% block title %}Sophrologie | Anne Avenel Dubois | Saint-Aignan-Sur-Ry{% endblock %}
+{% block image %}{{ absolute_url(asset('build/images/sophrologie2.jpg')) }}{% endblock %}
 
 {% block content_title %}La sophrologie{% endblock %}
 
@@ -26,7 +27,7 @@
     </section>
     <section class="w-100 who-section mb-0 mb-lg-5">
         <div class="picture-container">
-            <img src="{{ asset("build/images/sophrologie.jpg") }}" alt="">
+            <img src="{{ asset("build/images/sophrologie.jpg") }}" alt="Deux arbres éclairés par le Soleil">
         </div>
         <div class="who-content color_light">
             <h2 class="text-uppercase">Pour qui ?</h2>

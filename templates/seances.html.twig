@@ -1,6 +1,7 @@
 {% extends 'content_layout.html.twig' %}
 
 {% block title %}Déroulement des séances | Anne Avenel Dubois | Saint-Aignan-Sur-Ry{% endblock %}
+{% block image %}{{ absolute_url(asset('build/images/deroulement.jpg')) }}{% endblock %}
 
 {% block content_title %}Déroulement des séances{% endblock %}
 
@@ -28,7 +29,7 @@
         </div>
         <div class="col-lg-6 d-lg-flex justify-content-center align-items-center">
             <div class="mt-5 mt-lg-0 picture-container">
-                <img src="{{ asset('build/images/deroulement.jpg') }}" alt="">
+                <img src="{{ asset('build/images/deroulement.jpg') }}" alt="Femme dans un champ">
             </div>
         </div>
     </section>
@@ -49,7 +50,7 @@
             <span></span>
         </button>
         <section class="modal-content p-5 text-start" id="content_individual" style="display: none;">
-            <img src="{{ asset("build/images/individual.jpg") }}" class="modal-background" alt="">
+            <img src="{{ asset("build/images/individual.jpg") }}" class="modal-background" alt="Femme allongée dans l'herbe">
             <div class="bg-cover"></div>
             <h2>Séances individuelles</h2>
             <p class="fw_bold">Les séances individuelles, adaptées à vos besoins, sont construites dans une optique de développement personnel mais aussi thérapeutique.</p>
@@ -65,7 +66,7 @@
             <p class="fw_bold">Un accompagnement individuel dure 2 à 3 mois (6 à 12 séances).</p>
         </section>
         <section class="modal-content p-5 text-start" id="content_group_adult" style="display: none;">
-            <img src="{{ asset("build/images/group_adult.jpg") }}" class="modal-background" alt="">
+            <img src="{{ asset("build/images/group_adult.jpg") }}" class="modal-background" alt="Paysage avec des montagnes">
             <div class="bg-cover"></div>
             <h2>Séances de groupe pour les adultes</h2>
             <p>Les séances de groupe de sophrologie sont ouvertes à toutes et tous.</p>
@@ -111,7 +112,7 @@
             <p>Première séance : semaine du 12 septembre 2022 (séance de découverte gratuite).</p>
         </section>
         <section class="modal-content p-5 text-start" id="content_group_teenager" style="display: none;">
-            <img src="{{ asset("build/images/group_teenager.jpg") }}" class="modal-background" alt="">
+            <img src="{{ asset("build/images/group_teenager.jpg") }}" class="modal-background" alt="Cahier vierge posé sur une table">
             <div class="bg-cover"></div>
             <h2>Séances de groupe pour les adolescents</h2>
             <h3 class="mt-5">Pour quoi ?</h3>
@@ -138,7 +139,7 @@
             <p>Première séance le mercredi 5 octobre 2022 (séance de découverte gratuite).</p>
         </section>
         <section class="modal-content p-5 text-start" id="content_group_exam" style="display: none;">
-            <img src="{{ asset("build/images/group_exam.jpg") }}" class="modal-background" alt="">
+            <img src="{{ asset("build/images/group_exam.jpg") }}" class="modal-background" alt="Groupe d'adolescents">
             <div class="bg-cover"></div>
             <h2>Séances de groupe pour préparer un examen</h2>
             <h3 class="mt-5">Pour quoi ?</h3>
@@ -168,7 +169,7 @@
             <p>Le samedi de 11h00 à 12h00.</p>
         </section>
         <section class="modal-content p-5 text-start" id="content_group_kid" style="display: none;">
-            <img src="{{ asset("build/images/group_kid.jpg") }}" class="modal-background" alt="">
+            <img src="{{ asset("build/images/group_kid.jpg") }}" class="modal-background" alt="Groupe d'enfants qui méditent">
             <div class="bg-cover"></div>
             <h2>Séances de groupe pour les enfants</h2>
             <h3 class="mt-5">Informations pratiques</h3>

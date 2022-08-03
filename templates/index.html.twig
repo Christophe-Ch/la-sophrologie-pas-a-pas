@@ -3,6 +3,7 @@
 {% block layout %}home-layout{% endblock %}
 
 {% block title %}Sophrologue | Anne Avenel Dubois | Saint-Aignan-Sur-Ry{% endblock %}
+{% block image %}{{ absolute_url(asset('build/images/home.jpg')) }}{% endblock %}
 
 {% block body %}
     <div class="fullscreen">
@@ -11,7 +12,7 @@
                 <h1 class="text-uppercase">La<br>sophrologie<br>pas à pas</h1>
             </div>
             <div class="picture-container">
-                <img src="{{ asset('build/images/home.jpg') }}" alt="">
+                <img src="{{ asset('build/images/home.jpg') }}" alt="Femme marchant sur la plage">
                 <div class="picture-overlay d-lg-none"></div>
             </div>
             <div class="content-container my-5 d-lg-flex flex-lg-column align-items-lg-center">

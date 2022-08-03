@@ -1,6 +1,7 @@
 {% extends 'content_layout.html.twig' %}
 
 {% block title %}Tarifs | Anne Avenel Dubois | Saint-Aignan-Sur-Ry{% endblock %}
+{% block image %}{{ absolute_url(asset('build/images/tarifs.jpg')) }}{% endblock %}
 
 {% block content_title %}Tarifs{% endblock %}
 
@@ -44,7 +45,7 @@
         </div>
         <div class="col-lg-6 d-lg-flex justify-content-center align-items-center">
             <div class="mt-5 mt-lg-0 picture-container">
-                <img src="{{ asset('build/images/tarifs.jpg') }}" alt="">
+                <img src="{{ asset('build/images/tarifs.jpg') }}" alt="Mains croisées">
             </div>
         </div>
     </section>
@@ -60,7 +61,7 @@
             <span></span>
         </button>
         <section class="modal-content p-5 text-start">
-            <img src="{{ asset("build/images/gift_card.jpg") }}" class="modal-background" alt="">
+            <img src="{{ asset("build/images/gift_card.jpg") }}" class="modal-background" alt="Cabinet de Sophrologie">
             <div class="bg-cover"></div>
             <h2>Carte cadeau - Modalités</h2>
             <p>
