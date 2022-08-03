@@ -51,20 +51,53 @@
     <section class="p-3 pb-5 m-lg-auto text-lg-center">
         <h2>Envie d'offrir une ou plusieurs séances ?</h2>
         <p>Découvrez les modalités.</p>
-        <img src="{{ asset('build/images/carte_cadeau.png') }}" alt="" class="gift-card">
-        <p>
-            <span class="text-decoration-underline fw_bold">2 formules au choix :</span><br>
-            1 séance "Découverte" : 35€<br>
-            3 séances "Détente" : 100€
-        </p>
-        <p>
-            Vous m'informez de votre choix par tél ou par mail et vous effectuez le règlement par chèque ou virement.
-        </p>
-        <p>
-            À réception du règlement, le carte cadeau vous est envoyée par mail. Vous pouvez alors la télécharger et l'offrir à la personne de votre choix.
-        </p>
-        <p>
-            Cette personne prendra contact avec moi afin de fixer un rendez-vous pour la séance.
-        </p>
+        <button class="link link-fill my-3 mx-md-3" id="gift_card_cta"><span>Carte cadeau</span></button>
     </section>
+
+    <div class="modal" id="type_modal" style="display: none;">
+        <button id="modal_close" class="modal-close-btn">
+            <span></span>
+            <span></span>
+        </button>
+        <section class="modal-content p-5 text-start">
+            <img src="{{ asset("build/images/gift_card.jpg") }}" class="modal-background" alt="">
+            <div class="bg-cover"></div>
+            <h2>Carte cadeau - Modalités</h2>
+            <p>
+                <span class="text-decoration-underline fw_bold">2 formules au choix :</span><br>
+                1 séance "Découverte" : 35€<br>
+                3 séances "Détente" : 100€
+            </p>
+            <p>
+                Vous m'informez de votre choix par tél ou par mail et vous effectuez le règlement par chèque ou virement.
+            </p>
+            <p>
+                À réception du règlement, le carte cadeau vous est envoyée par mail. Vous pouvez alors la télécharger et l'offrir à la personne de votre choix.
+            </p>
+            <p>
+                Cette personne prendra contact avec moi afin de fixer un rendez-vous pour la séance.
+            </p>
+        </section>
+    </div>
+
+    <script>
+        const modal = document.getElementById("type_modal");
+        const modalOpenButton = document.getElementById("gift_card_cta");
+        const modalCloseButton = document.getElementById("modal_close");
+        let scroll = 0;
+
+        const showModal = () => {
+            scroll = window.scrollY;
+            modal.style.display = "block";
+            document.body.classList.toggle("modal-open", true);
+        }
+
+        modalOpenButton.addEventListener("click", () => showModal());
+
+        modalCloseButton.addEventListener("click", () => {
+            modal.style.display = "none";
+            document.body.classList.toggle('modal-open', false);
+            window.scrollTo(0, scroll);
+        })
+    </script>
 {% endblock %}
