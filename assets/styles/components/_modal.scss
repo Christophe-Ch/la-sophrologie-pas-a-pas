@@ -51,16 +51,24 @@
   }
 
   .modal-content {
-    margin-top: 25vh;
+    margin-top: 15vh;
+
+    @media screen and (min-width: $md) {
+      margin-top: 25vh;
+    }
 
     .modal-background, .bg-cover {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
-      height: 60vh;
+      height: 40vh;
       object-fit: cover;
       z-index: -1;
+
+      @media screen and (min-width: $md) {
+        height: 60vh;
+      }
     }
 
     .modal-background {
