@@ -1,0 +1,18 @@
+.flash-message {
+  position: absolute;
+  top: 10vh;
+  left: 50%;
+  width: fit-content;
+  background-color: #56DB7B;
+  padding: 2rem;
+  color: #245C34;
+  box-sizing: border-box;
+  transform: translateX(-50%);
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: .1s background-color ease-in-out;
+
+  &:hover {
+    background-color: #4CC26D;
+  }
+}

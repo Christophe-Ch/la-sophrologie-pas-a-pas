@@ -53,16 +53,17 @@ class PageController extends AbstractController
         if ($form->isSubmitted() && $form->isValid())
         {
             $message = (new TemplatedEmail())
-                ->from($email->getEmail())
-                ->to("chris.chich@hotmail.fr")
+                ->from("contact@lasophrologiepasapas.fr")
+                ->to($this->getParameter('mailer.recipient'))
                 ->subject($email->getSubject())
                 ->htmlTemplate('email.html.twig')
                 ->context([
                     'message' => $email
                 ]);
 
-
                 $mailer->send($message);
+
+                $this->addFlash('success', 'Le message a bien été envoyé !');
         }
 
         return $this->renderForm('contact.html.twig', [

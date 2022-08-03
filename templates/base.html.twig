@@ -47,6 +47,12 @@
                     <li class="nav-link {{ app.request.attributes.get('_route') == "app_contact" ? "active" }}"><a href="{{ path("app_contact") }}">Contact</a></li>
                 </ul>
             </nav>
+            {% for message in app.flashes('success') %}
+                <div class="flash-message d-flex align-items-center" onclick="this.remove()">
+                    <div>{{ message }}</div>
+                </div>
+            {% endfor %}
+
             {% block body %}{% endblock %}
             <footer>
                 <a href="{{ path("app_mentions_legales") }}" class="fw_light">mentions légales</a>

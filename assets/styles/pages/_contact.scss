@@ -24,6 +24,10 @@
     background: $primary_color;
     color: $light_color;
     cursor: pointer;
+
+    &:hover {
+      background-color: #B85A5A;
+    }
   }
 
   @media screen and (min-width: $lg) {
