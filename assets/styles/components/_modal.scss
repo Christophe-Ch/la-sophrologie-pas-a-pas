@@ -51,14 +51,14 @@
   }
 
   .modal-content {
-    margin-top: 15vh;
+    margin-top: 25vh;
 
     .modal-background, .bg-cover {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
-      height: 40vh;
+      height: 60vh;
       object-fit: cover;
       z-index: -1;
     }
