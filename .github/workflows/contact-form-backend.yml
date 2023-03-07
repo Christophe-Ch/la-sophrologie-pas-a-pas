@@ -27,4 +27,4 @@ jobs:
           source_dir: cloud-function
           min_instances: 0
           max_instances: 0
-          region: europe_west1
+          region: europe-west1
