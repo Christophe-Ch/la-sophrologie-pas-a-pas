@@ -28,5 +28,5 @@ jobs:
           min_instances: 0
           max_instances: 0
           region: europe-west1
-          secret_environment_variables: SENDGRID_API_KEY=${{ secrets.SENDRID_API_KEY }}
+          secret_environment_variables: SENDGRID_API_KEY=${{ secrets.SENDGRID_API_KEY }}
           env_vars: PROJECT_ID=${{ secrets.PROJECT_ID }}
