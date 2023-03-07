@@ -4,13 +4,13 @@ const { RecaptchaEnterpriseServiceClient } = require('@google-cloud/recaptcha-en
 const client = new RecaptchaEnterpriseServiceClient();
 const projectPath = client.projectPath(process.env.PROJECT_ID);
 
-module.exports = async (token) => {
+exports.isRequestTrusted = async (token) => {
     // Build the assessment request.
     const request = ({
         assessment: {
             event: {
                 token,
-                siteKey: process.env.RECAPTCHA_SITE_KEY,
+                siteKey: '6LcAONskAAAAAI3pMP7nClALcT03OW0nVBijMQUs',
             },
         },
         parent: projectPath,
@@ -27,12 +27,12 @@ module.exports = async (token) => {
     // Check if the expected action was executed.
     // The `action` property is set by user client in the
     // grecaptcha.enterprise.execute() method.
-    if (response.tokenProperties.action === process.env.RECAPTCHA_ACTION) {
+    if (response.tokenProperties.action === 'send-mail') {
 
         // Get the risk score and the reason(s).
         // For more information on interpreting the assessment,
         // see: https://cloud.google.com/recaptcha-enterprise/docs/interpret-assessment
-        return response.riskAnalysis.score >= process.env.RECAPTCHA_SCORE_THRESHOLD;
+        return response.riskAnalysis.score >= 0.8;
     } else {
         return false;
     }

@@ -1,10 +1,9 @@
-const functions = require('@google-cloud/functions-framework');
 const sgMail = require('@sendgrid/mail');
-const isRequestTrusted = require('./recaptcha');
+const { isRequestTrusted } = require('./recaptcha');
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
-functions.http('send-mail', async (req, res) => {
+exports.sendMail =  async (req, res) => {
     // Set CORS headers for preflight requests
     // Allows GETs from any origin with the Content-Type header
     // and caches preflight response for 3600s
@@ -28,4 +27,7 @@ functions.http('send-mail', async (req, res) => {
     }
 
     // TODO: add mail handling
-});
+    res.send({
+        success: true
+    });
+};
