@@ -22,7 +22,7 @@ jobs:
         with:
           name: send-mail
           runtime: nodejs18
-          entry_point: send-mail
+          entry_point: sendMail
           memory_mb: 128
           source_dir: cloud-function
           min_instances: 0
