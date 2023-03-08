@@ -1,4 +1,4 @@
-name: Contact form Cloud Function deploy
+name: Contact API deployment
 on:
   push:
     paths:
