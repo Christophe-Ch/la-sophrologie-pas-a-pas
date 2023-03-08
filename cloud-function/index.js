@@ -3,7 +3,7 @@ const { isRequestTrusted } = require('./recaptcha');
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
-exports.sendMail =  async (req, res) => {
+exports.sendMail = async (req, res) => {
     // Set CORS headers for preflight requests
     // Allows GETs from any origin with the Content-Type header
     // and caches preflight response for 3600s
@@ -19,7 +19,7 @@ exports.sendMail =  async (req, res) => {
         return;
     }
 
-    if (!isRequestTrusted(req.body.token)) {
+    if (!(await isRequestTrusted(req.body.token))) {
         res.send({
             success: false,
             errorType: 'recaptcha-validation'
