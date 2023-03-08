@@ -24,10 +24,20 @@ exports.sendMail = async (req, res) => {
             success: false,
             errorType: 'recaptcha-validation'
         });
+        return;
     }
 
-    // TODO: add mail handling
-    res.send({
-        success: true
-    });
+    sgMail
+        .send(msg)
+        .then(() => {
+            res.send({
+                success: true
+            })
+        })
+        .catch(() => {
+            res.send({
+                success: false,
+                errorType: 'mail-sending'
+            })
+        })
 };

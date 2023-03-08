@@ -1,6 +1,8 @@
 name: Contact API deployment
 on:
   push:
+    branches:
+      - main
     paths:
       - .github/workflows/contact-form-backend.yml
       - cloud-function/**
@@ -26,7 +28,6 @@ jobs:
           memory_mb: 128
           source_dir: cloud-function
           min_instances: 0
-          max_instances: 0
+          max_instances: 1
           region: europe-west1
-          secret_environment_variables: SENDGRID_API_KEY=${{ secrets.SENDGRID_API_KEY }}
-          env_vars: PROJECT_ID=${{ secrets.PROJECT_ID }}
+          secret_environment_variables: SENDGRID_API_KEY=${{ secrets.SENDGRID_API_KEY }},CONTACT_ADDRESS=${{ secrets.SENDGRID_MAIL_ADDRESS }}
