@@ -22,9 +22,28 @@ exports.sendMail = async (req, res) => {
     if (!(await isRequestTrusted(req.body.token))) {
         res.send({
             success: false,
-            errorType: 'recaptcha-validation'
+            errorType: 'recaptchaValidation'
         });
         return;
+    }
+
+    const missingFields = ["name", "subject", "email", "message"].filter(value => !Object.keys(req.body).includes(value));
+    if (missingFields.length > 0) {
+        res.send({
+            success: false,
+            errorType: 'missingField',
+            missingFields
+        });
+        return;
+    }
+
+    const html  = `<strong>Sujet : </strong> ${req.body.subject}<br><strong>Email : </strong> ${req.body.email}<br><strong>Message : </strong><br>${req.body.message}`;
+
+    const msg = {
+        to: process.env.SENDGRID_MAIL_ADDRESS,
+        from: process.env.SENDGRID_MAIL_ADDRESS,
+        subject: `Nouveau message de ${req.body.name}`,
+        html
     }
 
     sgMail
@@ -32,12 +51,12 @@ exports.sendMail = async (req, res) => {
         .then(() => {
             res.send({
                 success: true
-            })
+            });
         })
         .catch(() => {
             res.send({
                 success: false,
-                errorType: 'mail-sending'
+                errorType: 'mailSending'
             })
-        })
+        });
 };
