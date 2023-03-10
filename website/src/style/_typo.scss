@@ -1,0 +1,86 @@
+@import 'variables';
+
+// FONT WEIGHT
+.fw_light {
+  font-weight: $fw_light;
+}
+
+.fw_regular {
+  font-weight: $fw_regular;
+}
+
+.fw_medium {
+  font-weight: $fw_medium;
+}
+
+.fw_bold {
+  font-weight: $fw_bold;
+}
+
+// FONT SIZE
+.text_xs {
+  font-size: $text_xs;
+  line-height: 1.125rem;
+}
+
+.text_sm {
+  font-size: $text_sm;
+  line-height: 1.25rem;
+}
+
+.text_md {
+  font-size: $text_md;
+  line-height: 1.5rem;
+}
+
+.text_lg {
+  font-size: $text_lg;
+  line-height: 1.75rem;
+}
+
+.text_xl {
+  font-size: $text_xl;
+  line-height: 1.875rem;
+}
+
+.text_2xl {
+  font-size: $text_2xl;
+  line-height: 2rem;
+}
+
+// COLORS
+.color_primary {
+  color: $primary_color;
+}
+
+.color_secondary {
+  color: $secondary_color;
+}
+
+.color_light {
+  color: $light_color;
+}
+
+// TAGS
+body {
+  font-size: $text_md;
+  line-height: 2rem;
+
+  @media screen and (min-width: $lg) {
+    font-size: $text_xl;
+  }
+}
+
+p {
+  margin: 2rem 0;
+}
+
+strong {
+  font-weight: $fw_bold;
+}
+
+ul:not(.nav-links) {
+  margin: 2rem 0 2rem 1.5rem;
+  text-align: left;
+  list-style-type: unset;
+}

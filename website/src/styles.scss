@@ -1,1 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
+@import "style/reset";
+@import "style/variables";
+@import "style/fonts";
+@import "style/typo";
+@import "style/background";
+@import "style/sections";
+@import "style/links";
+@import "style/titles";
+// @import 'components/index';
+// @import 'pages/index';
+// @import "~bootstrap/scss/bootstrap-grid";
+// @import "~bootstrap/scss/bootstrap-utilities";
+
+html,
+body {
+  font-family: $primary-font  !important;
+  color: $primary_color;
+  overflow-x: hidden;
+}
