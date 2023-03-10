@@ -44,7 +44,7 @@ exports.sendMail = async (req, res) => {
         from: process.env.SENDGRID_MAIL_ADDRESS,
         subject: `Nouveau message de ${req.body.name}`,
         html
-    }
+    };
 
     sgMail
         .send(msg)
