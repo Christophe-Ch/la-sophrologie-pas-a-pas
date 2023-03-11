@@ -1,3 +1,6 @@
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
 @import "style/reset";
 @import "style/variables";
 @import "style/fonts";
@@ -13,7 +16,7 @@
 
 html,
 body {
-  font-family: var(--primary-font)  !important;
+  font-family: var(--primary-font) !important;
   color: var(--primary-color);
   overflow-x: hidden;
 }

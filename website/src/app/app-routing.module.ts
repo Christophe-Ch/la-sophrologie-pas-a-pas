@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ContactPageComponent } from './contact-page/contact-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { MentionsLegalesPageComponent } from './mentions-legales-page/mentions-legales-page.component';
 import { QuiSuisJePageComponent } from './qui-suis-je-page/qui-suis-je-page.component';
 import { SeancesPageComponent } from './seances-page/seances-page.component';
 import { SophrologiePageComponent } from './sophrologie-page/sophrologie-page.component';
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'qui-suis-je', component: QuiSuisJePageComponent },
   { path: 'tarifs', component: TarifsPageComponent },
   { path: 'contact', component: ContactPageComponent },
+  { path: 'mentions-legales', component: MentionsLegalesPageComponent }
 ];
 
 @NgModule({
