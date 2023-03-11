@@ -13,7 +13,7 @@
 
 html,
 body {
-  font-family: $primary-font  !important;
-  color: $primary_color;
+  font-family: var(--primary-font)  !important;
+  color: var(--primary-color);
   overflow-x: hidden;
 }

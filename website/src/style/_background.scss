@@ -1,11 +1,11 @@
 .bg-primary-color {
-  background-color: $primary_color;
+  background-color: var(--primary-color);
 }
 
 .bg-secondary-color {
-  background-color: $secondary_color;
+  background-color: var(--secondary-color);
 }
 
 .bg-light-color {
-  background-color: $light_color;
+  background-color: var(--light-color);
 }

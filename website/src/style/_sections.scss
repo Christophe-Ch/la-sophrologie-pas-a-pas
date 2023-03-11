@@ -1,3 +1,5 @@
+@import 'sizes';
+
 .modal-open {
   overflow-y: hidden;
   height: 100vh;
@@ -57,19 +59,20 @@
       margin-inline: auto;
 
       img {
-        box-shadow: -20px 20px 0px 0px $primary_color;
+        box-shadow: -20px 20px 0px 0px var(--primary-color);
       }
     }
   }
 }
 
-@media screen and (min-width: $lg) {
+@media screen and (min-width: $md) {
   .img-text-section {
     margin: 5rem 0 !important;
 
     .content-container {
       width: 75%;
     }
+
     .picture-container {
       height: 75%;
       width: 75%;

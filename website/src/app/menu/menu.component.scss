@@ -93,7 +93,7 @@ nav {
     transition: .75s left ease-in-out;
 
     .nav-link {
-        font-size: $text_xl;
+        font-size: var(--text-xl);
         line-height: 2rem;
         margin: 1rem 0;
         position: relative;
@@ -152,7 +152,7 @@ nav {
             margin-inline: 15px;
             position: relative;
 
-            background: linear-gradient(to bottom, $primary_color, $secondary_color);
+            background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
 
@@ -162,7 +162,7 @@ nav {
                 height: 4px;
                 width: 4px;
                 border-radius: 50%;
-                background: $primary_color;
+                background: var(--primary-color);
                 top: 50%;
                 left: -17px;
             }
