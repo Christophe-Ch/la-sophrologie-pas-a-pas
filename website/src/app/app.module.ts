@@ -14,6 +14,7 @@ import { TarifsPageComponent } from './tarifs-page/tarifs-page.component';
 import { ContactPageComponent } from './contact-page/contact-page.component';
 import { MentionsLegalesPageComponent } from './mentions-legales-page/mentions-legales-page.component';
 import { ContentLayoutComponent } from './content-layout/content-layout.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ContentLayoutComponent } from './content-layout/content-layout.componen
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

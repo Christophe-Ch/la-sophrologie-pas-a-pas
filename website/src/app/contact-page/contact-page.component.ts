@@ -8,6 +8,7 @@ import { fromLonLat } from 'ol/proj';
 import OSM from 'ol/source/OSM';
 import Icon from 'ol/style/Icon';
 import Style from 'ol/style/Style';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-contact-page',
@@ -15,7 +16,52 @@ import Style from 'ol/style/Style';
   styleUrls: ['./contact-page.component.scss']
 })
 export class ContactPageComponent implements OnInit {
+  contactForm!: FormGroup;
+
+  constructor(private readonly _formBuilder: FormBuilder) { }
+
   ngOnInit(): void {
+    this._buildForm();
+    this._initializeMap();
+  }
+
+  public get name() { return this.contactForm.get('name'); }
+  public get email() { return this.contactForm.get('email'); }
+  public get subject() { return this.contactForm.get('subject'); }
+  public get message() { return this.contactForm.get('message'); }
+
+  log() {
+    console.log(this.email);
+  }
+
+  private _buildForm(): void {
+    this.contactForm = this._formBuilder.group({
+      name: [
+        '',
+        Validators.required
+      ],
+      email: [
+        '',
+        {
+          validators: [
+            Validators.required,
+            Validators.email
+          ],
+          updateOn: 'blur'
+        }
+      ],
+      subject: [
+        '',
+        Validators.required
+      ],
+      message: [
+        '',
+        Validators.required
+      ]
+    })
+  }
+
+  private _initializeMap(): void {
     const map = new Map({
       target: 'map',
       layers: [
