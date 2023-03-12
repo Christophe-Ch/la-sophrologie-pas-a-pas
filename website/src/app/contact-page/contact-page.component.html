@@ -1,6 +1,6 @@
 <app-content-layout title="Me contacter">
     <section class="p-3 form-section">
-        <form [formGroup]="contactForm">
+        <form [formGroup]="contactForm" (submit)="submit()">
             <div class="row">
                 <div class="form-group col-12 col-lg-6">
                     <label for="name" class="d-block text_lg text-start mt-3 mb-2 text-uppercase">Nom</label>
@@ -11,8 +11,7 @@
                     </ng-container>
                 </div>
                 <div class="form-group col-12 col-lg-6">
-                    <label for="email" class="d-block text_lg text-start mt-3 mb-2 text-uppercase"
-                        (click)="log()">Email</label>
+                    <label for="email" class="d-block text_lg text-start mt-3 mb-2 text-uppercase">Email</label>
                     <input type="email" name="email" id="email" class="text-lg" formControlName="email">
                     <ng-container *ngIf="(email?.touched || email?.dirty)">
                         <label for="email" class="d-block mt-1 text_md fst-italic text-start mb-2"
@@ -71,7 +70,9 @@
                 </div>
             </div>
         </div>
-        <script src="{{ asset('build/scripts/ol.js') }}"></script>
         <div id="map" class="map w-100"></div>
     </section>
 </app-content-layout>
+<div class="custom-toast success">
+    Message envoyé !
+</div>

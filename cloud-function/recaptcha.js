@@ -27,7 +27,7 @@ exports.isRequestTrusted = async (token) => {
     // Check if the expected action was executed.
     // The `action` property is set by user client in the
     // grecaptcha.enterprise.execute() method.
-    if (response.tokenProperties.action === 'send-mail') {
+    if (response.tokenProperties.action === 'SEND_MAIL') {
 
         // Get the risk score and the reason(s).
         // For more information on interpreting the assessment,

@@ -12,8 +12,9 @@ exports.sendMail = async (req, res) => {
 
     if (req.method === 'OPTIONS') {
         // Send response to OPTIONS requests
-        res.set('Access-Control-Allow-Methods', 'GET');
-        res.set('Access-Control-Allow-Headers', 'Content-Type');
+        res.setHeader("Access-Control-Allow-Credentials", "true");
+        res.setHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+        res.setHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Access-Control-Allow-Origin, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
         res.set('Access-Control-Max-Age', '3600');
         res.status(204).send('');
         return;
@@ -37,7 +38,7 @@ exports.sendMail = async (req, res) => {
         return;
     }
 
-    const html  = `<strong>Sujet : </strong> ${req.body.subject}<br><strong>Email : </strong> ${req.body.email}<br><strong>Message : </strong><br>${req.body.message}`;
+    const html = `<strong>Sujet : </strong> ${req.body.subject}<br><strong>Email : </strong> ${req.body.email}<br><strong>Message : </strong><br>${req.body.message}`;
 
     const msg = {
         to: process.env.SENDGRID_MAIL_ADDRESS,

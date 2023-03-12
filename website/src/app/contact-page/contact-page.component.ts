@@ -8,7 +8,12 @@ import { fromLonLat } from 'ol/proj';
 import OSM from 'ol/source/OSM';
 import Icon from 'ol/style/Icon';
 import Style from 'ol/style/Style';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { ToastService } from '../toast.service';
+import { environment } from 'src/environments/environment';
+
+const RECAPTCHA_SCRIPT_SRC = 'https://www.google.com/recaptcha/enterprise.js?render=6LeZ3zAkAAAAAGzaL8q9QlTxrMAF36B-20eKAqao';
 
 @Component({
   selector: 'app-contact-page',
@@ -18,10 +23,15 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from
 export class ContactPageComponent implements OnInit {
   contactForm!: FormGroup;
 
-  constructor(private readonly _formBuilder: FormBuilder) { }
+  constructor(
+    private readonly _formBuilder: FormBuilder,
+    private readonly _httpClient: HttpClient,
+    private readonly _toastService: ToastService
+  ) { }
 
   ngOnInit(): void {
     this._buildForm();
+    this._initializeRecaptcha();
     this._initializeMap();
   }
 
@@ -30,8 +40,47 @@ export class ContactPageComponent implements OnInit {
   public get subject() { return this.contactForm.get('subject'); }
   public get message() { return this.contactForm.get('message'); }
 
-  log() {
-    console.log(this.email);
+  submit(): void {
+    if (this.contactForm.invalid) {
+      return;
+    }
+
+    const grecaptcha = (window as any).grecaptcha;
+    grecaptcha.enterprise.ready(async () => {
+      const token = await grecaptcha.enterprise.execute('6LeZ3zAkAAAAAGzaL8q9QlTxrMAF36B-20eKAqao', { action: 'SEND_MAIL' });
+      this._httpClient.post(environment.contactEndpoint,
+        {
+          token,
+          name: this.name!.value,
+          subject: this.subject!.value,
+          email: this.email!.value,
+          message: this.message!.value
+        },
+        {
+          headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type': 'application/json'
+          }
+        })
+        .subscribe((response: any) => {
+          if (response.success) {
+            this._toastService.showSuccess('Votre message a bien été envoyé !');
+            this.contactForm.reset();
+          } else {
+            switch (response.errorType) {
+              case "recaptchaValidation":
+                this._toastService.showError('Le captcha a échoué, veuillez rafraichir la page et renvoyer votre message.');
+                break;
+              case "missingFields":
+                this._toastService.showError('Veuillez vérifier que tous les champs sont bien renseignés.');
+                break;
+              case "mailSending":
+                this._toastService.showError('Le message n\'a pas pu être envoyé, veuillez réessayer plus tard.');
+                break;
+            }
+          }
+        })
+    });
   }
 
   private _buildForm(): void {
@@ -89,5 +138,12 @@ export class ContactPageComponent implements OnInit {
 
     const marker = new Feature(new Point(fromLonLat([1.351260, 49.503270])));
     markers.getSource()?.addFeature(marker);
+  }
+
+  private _initializeRecaptcha(): void {
+    const head = document.querySelector('head');
+    const script = document.createElement('script');
+    script.src = RECAPTCHA_SCRIPT_SRC;
+    head?.appendChild(script);
   }
 }
