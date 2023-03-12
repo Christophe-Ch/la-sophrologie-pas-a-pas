@@ -24,6 +24,11 @@
 
   @media screen and (min-width: $lg) {
     margin-top: 30vh;
+
+    .main-section {
+      width: 80%;
+      margin-inline: auto !important;
+    }
   }
 
   section {
@@ -54,19 +59,6 @@
 
 @media screen and (min-width: $md) {
   .img-text-section {
-    .picture-container {
-      width: 50%;
-      margin-inline: auto;
-
-      img {
-        box-shadow: -20px 20px 0px 0px var(--primary-color);
-      }
-    }
-  }
-}
-
-@media screen and (min-width: $md) {
-  .img-text-section {
     margin: 5rem 0 !important;
 
     .content-container {
@@ -76,6 +68,11 @@
     .picture-container {
       height: 75%;
       width: 75%;
+      margin-inline: auto;
+
+      img {
+        box-shadow: -20px 20px 0px 0px var(--primary-color);
+      }
     }
   }
 }

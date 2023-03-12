@@ -13,6 +13,7 @@ import { QuiSuisJePageComponent } from './qui-suis-je-page/qui-suis-je-page.comp
 import { TarifsPageComponent } from './tarifs-page/tarifs-page.component';
 import { ContactPageComponent } from './contact-page/contact-page.component';
 import { MentionsLegalesPageComponent } from './mentions-legales-page/mentions-legales-page.component';
+import { ContentLayoutComponent } from './content-layout/content-layout.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { MentionsLegalesPageComponent } from './mentions-legales-page/mentions-l
     TarifsPageComponent,
     ContactPageComponent,
     MentionsLegalesPageComponent,
+    ContentLayoutComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
