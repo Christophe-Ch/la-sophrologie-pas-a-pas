@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 
-enum ModalType {
+export enum SessionType {
   INDIVIDUAL = "individuelle",
   GROUP_ADULT = "groupe-pour-adulte",
   GROUP_TEENAGER = "groupe-pour-adolescent",
@@ -15,16 +15,16 @@ enum ModalType {
   styleUrls: ['./seances-page.component.scss']
 })
 export class SeancesPageComponent implements OnInit, OnDestroy {
-  modalType = ModalType;
+  modalType = SessionType;
 
-  openModalType?: ModalType;
+  openModalType?: SessionType;
   previousScroll = 0;
 
   constructor(private _route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this._route.paramMap.subscribe((params: ParamMap) => {
-      this.openModalType = params.get('type') as ModalType;
+      this.openModalType = params.get('type') as SessionType;
       if (this.openModalType !== null) {
         document.body.classList.add('modal-open')
       }

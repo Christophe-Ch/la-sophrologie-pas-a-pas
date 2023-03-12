@@ -1,1 +1,85 @@
-<p>tarifs-page works!</p>
+<app-content-layout title="Tarifs">
+    <section class="p-3 mb-0 main-section">
+        <h2>Consultations sur rendez-vous</h2>
+        <div class="d-flex flex-column flex-md-row justify-content-center">
+            <p class="mt-5 m-md-5">
+                <span class="text-decoration-underline fw_bold">Séances individuelles</span><br>
+                Adultes et adolescents : 45€<br>
+                Enfants : 35€
+            </p>
+            <p class="m-0 m-md-5">
+                <span class="text-decoration-underline fw_bold">Durée des séances</span><br>
+                Adultes : 1h<br>
+                Adolescents : 45 mn à 1h<br>
+                Enfants : 30 à 45 mn
+            </p>
+        </div>
+        <p>
+            <span class="text-decoration-underline fw_bold">Séances de groupe</span><br>
+            Voir aux pages concernées :
+        </p>
+        <div>
+            <a class="link link-fill my-3 mx-md-3" [routerLink]="['/seances', sessionType.GROUP_ADULT]"><span>Séances de
+                    groupe pour les adultes</span></a>
+            <a class="link link-fill my-3 mx-md-3" [routerLink]="['/seances', sessionType.GROUP_TEENAGER]"><span>Séances
+                    de groupe pour les adolescents</span></a>
+            <a class="link link-fill my-3 mx-md-3" [routerLink]="['/seances', sessionType.GROUP_EXAM]"><span>Séances de
+                    groupe pour les enfants</span></a>
+            <a class="link link-fill my-3 mx-md-3" [routerLink]="['/seances', sessionType.GROUP_KID]"><span>Séances de
+                    groupe pour préparer un examen</span></a>
+        </div>
+    </section>
+    <section class="p-3 img-text-section d-lg-flex flex-lg-row align-items-stretch">
+        <div class="col-lg-6 d-lg-flex justify-content-center align-items-center">
+            <div class="content-container">
+                <p class="text-lg-start">
+                    Certaines mutuelles remboursent les séances individuelles de sophrologie, n'hésitez pas à vous
+                    rapprocher de la vôtre pour plus d'informations.
+                </p>
+                <p class="text-lg-start">
+                    Membre de la <span class="fst-italic">Chambre Syndicale de Sophrologie</span>, je respecte le code
+                    de déontologie de la sophrologie : je m'engage donc à vous accompagner avec bienveillance et en
+                    toute confidentialité...
+                </p>
+            </div>
+        </div>
+        <div class="col-lg-6 d-lg-flex justify-content-center align-items-center">
+            <div class="mt-5 mt-lg-0 picture-container">
+                <img src="/assets/tarifs.jpg" alt="Mains croisées">
+            </div>
+        </div>
+    </section>
+    <section class="p-3 pb-5 m-lg-auto text-lg-center">
+        <h2>Envie d'offrir une ou plusieurs séances ?</h2>
+        <p>Découvrez les modalités.</p>
+        <a class="link link-fill my-3 mx-md-3" [routerLink]="['/tarifs', 'carte-cadeau']"><span>Carte cadeau</span></a>
+    </section>
+
+    <div class="custom-modal" id="type_modal" *ngIf="modalOpen">
+        <a class="modal-close-btn" routerLink="/tarifs">
+            <span></span>
+            <span></span>
+        </a>
+        <section class="custom-modal-content p-5 text-start">
+            <img src="/assets/gift_card.jpg" class="modal-background" alt="Cabinet de Sophrologie">
+            <div class="bg-cover"></div>
+            <h2>Carte cadeau - Modalités</h2>
+            <p>
+                <span class="text-decoration-underline fw_bold">2 formules au choix :</span><br>
+                1 séance "Découverte" : 35€<br>
+                3 séances "Détente" : 100€
+            </p>
+            <p>
+                Vous m'informez de votre choix par téléphone ou par mail et vous effectuez le règlement par chèque ou
+                virement.
+            </p>
+            <p>
+                À réception du règlement, le carte cadeau vous est envoyée par mail. Vous pouvez alors la télécharger et
+                l'offrir à la personne de votre choix.
+            </p>
+            <p>
+                Cette personne prendra contact avec moi afin de fixer un rendez-vous pour la séance.
+            </p>
+        </section>
+    </div>
+</app-content-layout>

@@ -15,6 +15,7 @@ const routes: Routes = [
   { path: 'seances/:type', component: SeancesPageComponent },
   { path: 'qui-suis-je', component: QuiSuisJePageComponent },
   { path: 'tarifs', component: TarifsPageComponent },
+  { path: 'tarifs/:modalOpen', component: TarifsPageComponent },
   { path: 'contact', component: ContactPageComponent },
   { path: 'mentions-legales', component: MentionsLegalesPageComponent }
 ];
