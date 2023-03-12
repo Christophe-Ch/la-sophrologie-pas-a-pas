@@ -12,6 +12,7 @@ const routes: Routes = [
   { path: '', component: HomePageComponent },
   { path: 'sophrologie', component: SophrologiePageComponent },
   { path: 'seances', component: SeancesPageComponent },
+  { path: 'seances/:type', component: SeancesPageComponent },
   { path: 'qui-suis-je', component: QuiSuisJePageComponent },
   { path: 'tarifs', component: TarifsPageComponent },
   { path: 'contact', component: ContactPageComponent },
@@ -22,7 +23,7 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes, {
     initialNavigation: 'enabledBlocking',
     scrollPositionRestoration: 'enabled'
-})],
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
