@@ -1,0 +1,68 @@
+@import '../../style/sizes';
+
+.form-section {
+
+    input,
+    textarea {
+        width: 100%;
+        padding: 1rem 1.5rem;
+        box-sizing: border-box;
+        outline: none;
+        border: none;
+        background: var(--alpha-25-primary-color);
+        color: var(--primary-color);
+
+        &::placeholder {
+            color: var(--primary-color);
+        }
+
+        &:focus {
+            outline: 5px solid var(--alpha-75-primary-color);
+        }
+    }
+
+    button {
+        padding: 1rem 3rem;
+        border: none;
+        outline: none;
+        background: var(--primary-color);
+        color: var(--light-color);
+        cursor: pointer;
+
+        &:hover {
+            background-color: #B85A5A;
+        }
+    }
+
+    @media screen and (min-width: $lg) {
+        width: 75%;
+    }
+}
+
+.info-section {
+    @media screen and (min-width: $lg) {
+        width: 100%;
+    }
+
+    .info-container {
+        background: #d16666;
+        color: #FCFAE8;
+        overflow-wrap: anywhere;
+
+        p {
+            margin: 0;
+        }
+
+        @media screen and (min-width: $lg) {
+            display: flex;
+            justify-content: space-around;
+            padding: 3rem !important;
+            align-items: stretch;
+            text-align: left;
+        }
+    }
+
+    .map {
+        height: 400px;
+    }
+}

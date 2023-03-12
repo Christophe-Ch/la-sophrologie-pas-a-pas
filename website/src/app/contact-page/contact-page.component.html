@@ -1,1 +1,84 @@
-<p>contact-page works!</p>
+<app-content-layout title="Me contacter">
+    <section class="p-3 form-section">
+        <form>
+            <div class="row">
+                <div class="form-group col-12 col-lg-6">
+                    <label for="name" class="d-block text_lg text-start mt-3 mb-2 text-uppercase">Nom</label>
+                    <input type="text" name="name" id="name" class="text-lg">
+                </div>
+                <div class="form-group col-12 col-lg-6">
+                    <label for="name" class="d-block text_lg text-start mt-3 mb-2 text-uppercase">Email</label>
+                    <input type="email" name="email" id="email" class="text-lg">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="subject" class="d-block text_lg text-start mt-3 mb-2 text-uppercase">Sujet</label>
+                <input type="text" name="subject" id="subject" class="text-lg">
+            </div>
+            <div class="form-group">
+                <label for="message" class="d-block text_lg text-start mt-3 mb-2 text-uppercase">Sujet</label>
+                <textarea name="message" id="message" class="text-lg" rows="10"></textarea>
+            </div>
+            <div class="form-group mt-2 mt-lg-4">
+                <button type="submit" class="fw_bold text_lg text-uppercase">Envoyer</button>
+            </div>
+        </form>
+    </section>
+    <section class="info-section">
+        <div class="p-4 info-container">
+            <div>
+                <div>
+                    <span class="fw_bold text_xl">Adresse</span>
+                    <p>
+                        140 Rue Sainte-Anne<br>
+                        76 116 SAINT AIGNAN SUR RY
+                    </p>
+                </div>
+            </div>
+            <div class="my-4 my-lg-0">
+                <div>
+                    <span class="fw_bold text_xl">Téléphone</span>
+                    <p>06 20 81 82 68</p>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <span class="fw_bold text_xl">Email</span>
+                    <p>anne.avenel.sophrologie@laposte.net</p>
+                </div>
+            </div>
+        </div>
+        <script src="{{ asset('build/scripts/ol.js') }}"></script>
+        <div id="map" class="map w-100"></div>
+        <!-- <script type="text/javascript">
+            var map = new ol.Map({
+                target: 'map',
+                layers: [
+                    new ol.layer.Tile({
+                        source: new ol.source.OSM()
+                    })
+                ],
+                view: new ol.View({
+                    center: ol.proj.fromLonLat([1.351260, 49.503270]),
+                    zoom: 13
+                })
+            });
+
+            const markers = new ol.layer.Vector({
+                source: new ol.source.Vector(),
+                style: new ol.style.Style({
+                    image: new ol.style.Icon({
+                        anchor: [0.5, 1],
+                        src: '{{ asset('build/images/marker.png') }}',
+                        scale: 0.5
+                    })
+                })
+            });
+            map.addLayer(markers);
+
+            var marker = new ol.Feature(new ol.geom.Point(ol.proj.fromLonLat([1.351260, 49.503270])));
+            markers.getSource().addFeature(marker);
+
+        </script> -->
+    </section>
+</app-content-layout>
