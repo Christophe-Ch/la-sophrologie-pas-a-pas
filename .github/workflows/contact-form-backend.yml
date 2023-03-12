@@ -21,6 +21,8 @@ jobs:
         with:
           workload_identity_provider: ${{ secrets.WORKLOAD_IDENTITY_PROVIDER }}
           service_account: ${{ secrets.SERVICE_ACCOUNT }}
+          token_format: access_token
+          access_token_lifetime: 300s
 
       - name: Login to Artifact Registry
         uses: docker/login-action@v2
