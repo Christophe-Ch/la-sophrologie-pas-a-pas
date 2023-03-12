@@ -1,0 +1,27 @@
+.custom-toast {
+    position: fixed;
+    z-index: 1000;
+    top: 1rem;
+    left: -100%;
+    transform: translateX(-50%);
+    width: calc(100% - 2rem);
+    padding: 1rem 2rem;
+    text-align: center;
+    border-radius: 0.5rem;
+    box-shadow: 0px 2px 9px 0px rgba(0, 0, 0, 0.3);
+    transition: left 0.75s ease-in-out;
+
+    &.success {
+        background: lightgreen;
+        color: darkgreen;
+    }
+
+    &.error {
+        background: lightcoral;
+        color: darkred;
+    }
+
+    &.shown {
+        left: 50%;
+    }
+}

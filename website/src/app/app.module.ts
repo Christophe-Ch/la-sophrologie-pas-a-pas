@@ -15,6 +15,8 @@ import { ContactPageComponent } from './contact-page/contact-page.component';
 import { MentionsLegalesPageComponent } from './mentions-legales-page/mentions-legales-page.component';
 import { ContentLayoutComponent } from './content-layout/content-layout.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { ToastComponent } from './toast/toast.component';
 
 @NgModule({
   declarations: [
@@ -28,13 +30,15 @@ import { ReactiveFormsModule } from '@angular/forms';
     TarifsPageComponent,
     ContactPageComponent,
     MentionsLegalesPageComponent,
-    ContentLayoutComponent
+    ContentLayoutComponent,
+    ToastComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     NgbModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
