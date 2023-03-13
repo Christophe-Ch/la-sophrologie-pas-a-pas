@@ -13,7 +13,7 @@ import { HttpClient } from '@angular/common/http';
 import { ToastService } from '../toast.service';
 import { environment } from 'src/environments/environment';
 
-const RECAPTCHA_SCRIPT_SRC = 'https://www.google.com/recaptcha/enterprise.js?render=6LeZ3zAkAAAAAGzaL8q9QlTxrMAF36B-20eKAqao';
+const RECAPTCHA_SCRIPT_SRC = 'https://www.google.com/recaptcha/enterprise.js?render=6LcAONskAAAAAI3pMP7nClALcT03OW0nVBijMQUs';
 
 @Component({
   selector: 'app-contact-page',
@@ -47,7 +47,7 @@ export class ContactPageComponent implements OnInit {
 
     const grecaptcha = (window as any).grecaptcha;
     grecaptcha.enterprise.ready(async () => {
-      const token = await grecaptcha.enterprise.execute('6LeZ3zAkAAAAAGzaL8q9QlTxrMAF36B-20eKAqao', { action: 'SEND_MAIL' });
+      const token = await grecaptcha.enterprise.execute('6LcAONskAAAAAI3pMP7nClALcT03OW0nVBijMQUs', { action: 'SEND_MAIL' });
       this._httpClient.post(environment.contactEndpoint,
         {
           token,
