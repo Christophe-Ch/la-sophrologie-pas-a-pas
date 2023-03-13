@@ -21,6 +21,7 @@ exports.isRequestTrusted = async (token) => {
 
     // Check if the token is valid.
     if (!response.tokenProperties.valid) {
+        console.log(`Invalid properties for token: ${token}`);
         return false;
     }
 
@@ -32,8 +33,10 @@ exports.isRequestTrusted = async (token) => {
         // Get the risk score and the reason(s).
         // For more information on interpreting the assessment,
         // see: https://cloud.google.com/recaptcha-enterprise/docs/interpret-assessment
+        console.log(`Score: ${response.riskAnalysis.score}`);
         return response.riskAnalysis.score >= 0.8;
     } else {
+        console.log(`Invalid action: ${response.tokenProperties.action}`)
         return false;
     }
 }
