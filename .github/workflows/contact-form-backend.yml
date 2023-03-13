@@ -3,9 +3,6 @@ on:
   push:
     branches:
       - main
-    paths:
-      - .github/workflows/contact-form-backend.yml
-      - cloud-function/**
 jobs:
   Deploy:
     runs-on: ubuntu-latest
@@ -44,10 +41,9 @@ jobs:
           max_instances: 1
           region: europe-west1
           secret_environment_variables: SENDGRID_API_KEY=${{ secrets.SENDGRID_API_KEY }},SENDGRID_MAIL_ADDRESS=${{ secrets.SENDGRID_MAIL_ADDRESS }}
-      
+
       - name: Prepare environment variables
         run: sed -i 's,API_URL,${{ steps.deploy-function.outputs.url }},g' ${{ github.workspace }}/website/src/environments/environment.prod.ts
-
 
       - name: Get tag
         id: get-tag
