@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  contactEndpoint: ''
+  contactEndpoint: 'https://europe-west1-la-sophrologie-pas-a-pas.cloudfunctions.net/send-mail'
 };
 
 
