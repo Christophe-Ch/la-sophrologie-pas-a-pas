@@ -3,6 +3,9 @@ on:
   push:
     branches:
       - main
+    paths:
+      - .github/workflows/contact-form-backend.yml
+      - cloud-function/**
 jobs:
   Deploy:
     runs-on: ubuntu-latest
@@ -18,15 +21,6 @@ jobs:
         with:
           workload_identity_provider: ${{ secrets.WORKLOAD_IDENTITY_PROVIDER }}
           service_account: ${{ secrets.SERVICE_ACCOUNT }}
-          token_format: access_token
-          access_token_lifetime: 300s
-
-      - name: Login to Artifact Registry
-        uses: docker/login-action@v2
-        with:
-          registry: europe-west1-docker.pkg.dev
-          username: oauth2accesstoken
-          password: ${{ steps.auth.outputs.access_token }}
 
       - name: Deploy function
         id: deploy-function
@@ -41,26 +35,3 @@ jobs:
           max_instances: 1
           region: europe-west1
           secret_environment_variables: SENDGRID_API_KEY=${{ secrets.SENDGRID_API_KEY }},SENDGRID_MAIL_ADDRESS=${{ secrets.SENDGRID_MAIL_ADDRESS }}
-
-      - name: Prepare environment variables
-        run: sed -i 's,API_URL,${{ steps.deploy-function.outputs.url }},g' ${{ github.workspace }}/website/src/environments/environment.prod.ts
-
-      - name: Get tag
-        id: get-tag
-        run: echo ::set-output name=short_ref::${GITHUB_REF#refs/*/}
-
-      - name: Push to Artifact Registry
-        uses: docker/build-push-action@v4
-        with:
-          context: website/
-          push: true
-          tags: |
-            europe-west1-docker.pkg.dev/la-sophrologie-pas-a-pas/website/website:${{ steps.get-tag.outputs.short_ref }}
-            europe-west1-docker.pkg.dev/la-sophrologie-pas-a-pas/website/website:latest
-
-      - name: Deploy new revision
-        uses: google-github-actions/deploy-cloudrun@v1
-        with:
-          service: website
-          image: europe-west1-docker.pkg.dev/la-sophrologie-pas-a-pas/website/website
-          region: europe-west1

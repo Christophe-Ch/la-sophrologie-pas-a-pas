@@ -1,6 +1,6 @@
 # La sophrologie pas à pas
 
-![contact form api deployment badge](https://github.com/Christophe-Ch/la-sophrologie-pas-a-pas/actions/workflows/contact-form-backend.yml/badge.svg)
+![website deployment badge](https://github.com/Christophe-Ch/la-sophrologie-pas-a-pas/actions/workflows/website.yml/badge.svg) ![contact form api deployment badge](https://github.com/Christophe-Ch/la-sophrologie-pas-a-pas/actions/workflows/contact-form-backend.yml/badge.svg)
 
 **La sophrologie pas à pas** is a website developed for Anne AVENEL DUBOIS, and accessible at: [lasophrologiepasapas.fr](https://www.lasophrologiepasapas.fr).
 
