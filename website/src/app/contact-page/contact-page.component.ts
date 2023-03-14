@@ -22,6 +22,7 @@ const RECAPTCHA_SCRIPT_SRC = 'https://www.google.com/recaptcha/enterprise.js?ren
 })
 export class ContactPageComponent implements OnInit {
   contactForm!: FormGroup;
+  isSending = false;
 
   constructor(
     private readonly _formBuilder: FormBuilder,
@@ -45,6 +46,8 @@ export class ContactPageComponent implements OnInit {
       return;
     }
 
+    this.isSending = true;
+
     const grecaptcha = (window as any).grecaptcha;
     grecaptcha.enterprise.ready(async () => {
       const token = await grecaptcha.enterprise.execute('6LcAONskAAAAAI3pMP7nClALcT03OW0nVBijMQUs', { action: 'SEND_MAIL' });
@@ -54,7 +57,7 @@ export class ContactPageComponent implements OnInit {
           name: this.name!.value,
           subject: this.subject!.value,
           email: this.email!.value,
-          message: this.message!.value
+          message: this.message!.value.replaceAll('\n', '<br>')
         },
         {
           headers: {
@@ -63,6 +66,7 @@ export class ContactPageComponent implements OnInit {
           }
         })
         .subscribe((response: any) => {
+          this.isSending = false;
           if (response.success) {
             this._toastService.showSuccess('Votre message a bien été envoyé !');
             this.contactForm.reset();

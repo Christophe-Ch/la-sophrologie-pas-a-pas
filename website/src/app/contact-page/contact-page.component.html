@@ -42,7 +42,9 @@
                 </ng-container>
             </div>
             <div class="form-group mt-2 mt-lg-4">
-                <button type="submit" class="fw_bold text_lg text-uppercase">Envoyer</button>
+                <button type="submit" class="fw_bold text_lg text-uppercase" [disabled]="isSending">
+                    Envoyer
+                </button>
             </div>
         </form>
     </section>

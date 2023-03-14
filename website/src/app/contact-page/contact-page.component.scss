@@ -28,9 +28,26 @@
         background: var(--primary-color);
         color: var(--light-color);
         cursor: pointer;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
 
         &:hover {
             background-color: #B85A5A;
+        }
+
+        &:disabled {
+            background-color: #B85A5A;
+            color: transparent;
+            background-image: url('/assets/loader.svg');
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            cursor: default;
+        }
+
+        img {
+            height: 2rem;
         }
     }
 
