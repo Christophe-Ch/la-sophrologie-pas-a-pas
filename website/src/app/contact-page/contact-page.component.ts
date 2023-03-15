@@ -12,6 +12,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { ToastService } from '../toast.service';
 import { environment } from 'src/environments/environment';
+import { TitleService } from '../title.service';
 
 const RECAPTCHA_SCRIPT_SRC = 'https://www.google.com/recaptcha/enterprise.js?render=6LcAONskAAAAAI3pMP7nClALcT03OW0nVBijMQUs';
 
@@ -27,8 +28,11 @@ export class ContactPageComponent implements OnInit {
   constructor(
     private readonly _formBuilder: FormBuilder,
     private readonly _httpClient: HttpClient,
-    private readonly _toastService: ToastService
-  ) { }
+    private readonly _toastService: ToastService,
+    titleService: TitleService
+  ) {
+    titleService.setTitle('Contact');
+  }
 
   ngOnInit(): void {
     this._buildForm();

@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
+import { TitleService } from '../title.service';
 
 export enum SessionType {
   INDIVIDUAL = "individuelle",
@@ -20,7 +21,9 @@ export class SeancesPageComponent implements OnInit, OnDestroy {
   openModalType?: SessionType;
   previousScroll = 0;
 
-  constructor(private _route: ActivatedRoute) { }
+  constructor(private _route: ActivatedRoute, titleService: TitleService) {
+    titleService.setTitle('Déroulement des séances');
+  }
 
   ngOnInit(): void {
     this._route.paramMap.subscribe((params: ParamMap) => {

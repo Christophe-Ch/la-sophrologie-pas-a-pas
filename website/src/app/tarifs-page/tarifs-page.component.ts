@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { SessionType } from '../seances-page/seances-page.component';
+import { TitleService } from '../title.service';
 
 @Component({
   selector: 'app-tarifs-page',
@@ -11,7 +12,9 @@ export class TarifsPageComponent implements OnInit, OnDestroy {
   sessionType = SessionType;
   modalOpen = false;
 
-  constructor(private _route: ActivatedRoute) { }
+  constructor(private _route: ActivatedRoute, titleService: TitleService) {
+    titleService.setTitle('Tarifs');
+  }
 
   ngOnInit(): void {
     this._route.paramMap.subscribe((params: ParamMap) => {
