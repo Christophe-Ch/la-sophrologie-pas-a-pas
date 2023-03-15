@@ -13,6 +13,7 @@ import { HttpClient } from '@angular/common/http';
 import { ToastService } from '../toast.service';
 import { environment } from 'src/environments/environment';
 import { TitleService } from '../title.service';
+import { Meta } from '@angular/platform-browser';
 
 const RECAPTCHA_SCRIPT_SRC = 'https://www.google.com/recaptcha/enterprise.js?render=6LcAONskAAAAAI3pMP7nClALcT03OW0nVBijMQUs';
 
@@ -29,12 +30,20 @@ export class ContactPageComponent implements OnInit {
     private readonly _formBuilder: FormBuilder,
     private readonly _httpClient: HttpClient,
     private readonly _toastService: ToastService,
-    titleService: TitleService
-  ) {
-    titleService.setTitle('Contact');
-  }
+    private readonly _titleService: TitleService,
+    private readonly _meta: Meta
+  ) { }
 
   ngOnInit(): void {
+    this._titleService.setTitle('Contact');
+    this._meta.updateTag({
+      name: 'description',
+      content: 'Contactez-moi pour toute demande de renseignements ou pour prendre rendez-vous. Je suis à votre écoute pour répondre à vos questions sur mes séances de sophrologie.'
+    });
+    this._meta.updateTag({
+      name: 'keywords',
+      content: 'Sophrologie, séances de sophrologie, Saint-Aignan-Sur-Ry, Anne Avenel Dubois, contact, rendez-vous, demande de renseignements, qualité de vie'
+    });
     this._buildForm();
     this._initializeRecaptcha();
     this._initializeMap();
