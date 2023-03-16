@@ -41,8 +41,20 @@ export class ContactPageComponent implements OnInit {
       content: 'Contactez-moi pour toute demande de renseignements ou pour prendre rendez-vous. Je suis à votre écoute pour répondre à vos questions sur mes séances de sophrologie.'
     });
     this._meta.updateTag({
+      name: 'og:description',
+      content: 'Contactez-moi pour toute demande de renseignements ou pour prendre rendez-vous. Je suis à votre écoute pour répondre à vos questions sur mes séances de sophrologie.'
+    });
+    this._meta.updateTag({
+      name: 'og:image',
+      content: '/assets/home.jpg'
+    });
+    this._meta.updateTag({
       name: 'keywords',
       content: 'Sophrologie, séances de sophrologie, Saint-Aignan-Sur-Ry, Anne Avenel Dubois, contact, rendez-vous, demande de renseignements, qualité de vie'
+    });
+    this._meta.updateTag({
+      name: 'twitter:card',
+      content: 'summary'
     });
     this._buildForm();
     this._initializeRecaptcha();

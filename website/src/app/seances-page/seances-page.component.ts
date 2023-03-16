@@ -37,8 +37,20 @@ export class SeancesPageComponent implements OnInit, OnDestroy {
       content: 'Je propose différents types de séances de sophrologie adaptées à vos besoins. Vous pouvez bénéficier de séances individuelles pour une attention personnalisée, ou rejoindre l\'un de mes groupes de sophrologie pour partager une expérience de relaxation et de développement personnel avec d\'autres. Mes séances comprennent la gestion du stress, la relaxation, la préparation mentale, le développement personnel et plus encore.'
     });
     this._meta.updateTag({
+      name: 'og:description',
+      content: 'Je propose différents types de séances de sophrologie adaptées à vos besoins. Vous pouvez bénéficier de séances individuelles pour une attention personnalisée, ou rejoindre l\'un de mes groupes de sophrologie pour partager une expérience de relaxation et de développement personnel avec d\'autres. Mes séances comprennent la gestion du stress, la relaxation, la préparation mentale, le développement personnel et plus encore.'
+    });
+    this._meta.updateTag({
+      name: 'og:image',
+      content: '/assets/home.jpg'
+    });
+    this._meta.updateTag({
       name: 'keywords',
       content: 'séances de sophrologie, gestion du stress, relaxation, préparation mentale, développement personnel, sophrologie pour enfants, sophrologie pour adultes'
+    });
+    this._meta.updateTag({
+      name: 'twitter:card',
+      content: 'summary'
     });
 
     this._route.paramMap.subscribe((params: ParamMap) => {

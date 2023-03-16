@@ -22,8 +22,20 @@ export class TarifsPageComponent implements OnInit, OnDestroy {
       content: 'Consultez mes tarifs de sophrologie pour bénéficier de séances adaptées à tous les âges et à tous les besoins. N\'hésitez pas à me contacter pour plus d\'informations et pour prendre rendez-vous.'
     });
     this._meta.updateTag({
+      name: 'og:description',
+      content: 'Consultez mes tarifs de sophrologie pour bénéficier de séances adaptées à tous les âges et à tous les besoins. N\'hésitez pas à me contacter pour plus d\'informations et pour prendre rendez-vous.'
+    });
+    this._meta.updateTag({
+      name: 'og:image',
+      content: '/assets/home.jpg'
+    });
+    this._meta.updateTag({
       name: 'keywords',
       content: 'tarifs sophrologie, prix séances sophrologie, sophrologue Saint-Aignan-Sur-Ry, sophrologie pour enfants, sophrologie pour adultes'
+    });
+    this._meta.updateTag({
+      name: 'twitter:card',
+      content: 'summary'
     });
 
     this._route.paramMap.subscribe((params: ParamMap) => {

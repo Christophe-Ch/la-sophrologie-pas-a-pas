@@ -17,8 +17,20 @@ export class SophrologiePageComponent implements OnInit {
       content: 'Découvrez la sophrologie et ses bienfaits sur le corps et l\'esprit. Cette méthode de relaxation et de développement personnel peut aider à réduire le stress, améliorer le sommeil, augmenter la confiance en soi et plus encore. La sophrologie s\'adresse à tous, des enfants aux adultes.'
     });
     this._meta.updateTag({
+      name: 'og:description',
+      content: 'Découvrez la sophrologie et ses bienfaits sur le corps et l\'esprit. Cette méthode de relaxation et de développement personnel peut aider à réduire le stress, améliorer le sommeil, augmenter la confiance en soi et plus encore. La sophrologie s\'adresse à tous, des enfants aux adultes.'
+    });
+    this._meta.updateTag({
+      name: 'og:image',
+      content: '/assets/home.jpg'
+    });
+    this._meta.updateTag({
       name: 'keywords',
       content: 'sophrologie, relaxation, développement personnel, stress, sommeil, confiance en soi, enfants, adultes'
+    });
+    this._meta.updateTag({
+      name: 'twitter:card',
+      content: 'summary'
     });
   }
 }

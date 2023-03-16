@@ -17,8 +17,20 @@ export class QuiSuisJePageComponent implements OnInit {
       content: 'Découvrez le parcours et les compétences d\'Anne Avenel Dubois, sophrologue à Saint-Aignan-Sur-Ry.'
     });
     this._meta.updateTag({
+      name: 'og:description',
+      content: 'Découvrez le parcours et les compétences d\'Anne Avenel Dubois, sophrologue à Saint-Aignan-Sur-Ry.'
+    });
+    this._meta.updateTag({
+      name: 'og:image',
+      content: '/assets/home.jpg'
+    });
+    this._meta.updateTag({
       name: 'keywords',
       content: 'Anne Avenel Dubois, sophrologue, Saint-Aignan-Sur-Ry, parcours, compétences, expérience, formation, séances de sophrologie, relaxation, bien-être, gestion du stress, techniques de respiration, méditation'
+    });
+    this._meta.updateTag({
+      name: 'twitter:card',
+      content: 'summary'
     });
   }
 }
