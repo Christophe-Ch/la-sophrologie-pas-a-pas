@@ -1,4 +1,5 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { TitleService } from '../title.service';
@@ -22,7 +23,12 @@ export class SeancesPageComponent implements OnInit, OnDestroy {
   openModalType?: SessionType;
   previousScroll = 0;
 
-  constructor(private readonly _route: ActivatedRoute, private readonly _titleService: TitleService, private readonly _meta: Meta) { }
+  constructor(
+    private readonly _route: ActivatedRoute,
+    private readonly _titleService: TitleService,
+    private readonly _meta: Meta,
+    @Inject(DOCUMENT) private readonly _document: Document
+  ) { }
 
   ngOnInit(): void {
     this._titleService.setTitle('Déroulement des séances');
@@ -38,12 +44,12 @@ export class SeancesPageComponent implements OnInit, OnDestroy {
     this._route.paramMap.subscribe((params: ParamMap) => {
       this.openModalType = params.get('type') as SessionType;
       if (this.openModalType !== null) {
-        document.body.classList.add('modal-open')
+        this._document.body.classList.add('modal-open')
       }
     });
   }
 
   ngOnDestroy(): void {
-    document.body.classList.remove('modal-open');
+    this._document.body.classList.remove('modal-open');
   }
 }
