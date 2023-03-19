@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { Feature, Map, View } from 'ol';
 import { Point } from 'ol/geom';
 import TileLayer from 'ol/layer/Tile';
@@ -14,6 +14,7 @@ import { ToastService } from '../toast.service';
 import { environment } from 'src/environments/environment';
 import { TitleService } from '../title.service';
 import { Meta } from '@angular/platform-browser';
+import { DOCUMENT } from '@angular/common';
 
 const RECAPTCHA_SCRIPT_SRC = 'https://www.google.com/recaptcha/enterprise.js?render=6LcAONskAAAAAI3pMP7nClALcT03OW0nVBijMQUs';
 
@@ -31,7 +32,8 @@ export class ContactPageComponent implements OnInit {
     private readonly _httpClient: HttpClient,
     private readonly _toastService: ToastService,
     private readonly _titleService: TitleService,
-    private readonly _meta: Meta
+    private readonly _meta: Meta,
+    @Inject(DOCUMENT) private readonly _document: Document
   ) { }
 
   ngOnInit(): void {
@@ -170,8 +172,8 @@ export class ContactPageComponent implements OnInit {
   }
 
   private _initializeRecaptcha(): void {
-    const head = document.querySelector('head');
-    const script = document.createElement('script');
+    const head = this._document.querySelector('head');
+    const script = this._document.createElement('script');
     script.src = RECAPTCHA_SCRIPT_SRC;
     head?.appendChild(script);
   }

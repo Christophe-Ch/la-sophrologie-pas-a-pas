@@ -17,7 +17,8 @@ const routes: Routes = [
   { path: 'tarifs', component: TarifsPageComponent },
   { path: 'tarifs/:modalOpen', component: TarifsPageComponent },
   { path: 'contact', component: ContactPageComponent },
-  { path: 'mentions-legales', component: MentionsLegalesPageComponent }
+  { path: 'mentions-legales', component: MentionsLegalesPageComponent },
+  { path: '**', redirectTo: '/' }
 ];
 
 @NgModule({
