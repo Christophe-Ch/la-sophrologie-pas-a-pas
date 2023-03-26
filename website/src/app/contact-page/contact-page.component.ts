@@ -26,6 +26,7 @@ const RECAPTCHA_SCRIPT_SRC = 'https://www.google.com/recaptcha/enterprise.js?ren
 export class ContactPageComponent implements OnInit {
   contactForm!: FormGroup;
   isSending = false;
+  isEnabled = false;
 
   constructor(
     private readonly _formBuilder: FormBuilder,
@@ -59,8 +60,8 @@ export class ContactPageComponent implements OnInit {
       content: 'summary'
     });
     this._buildForm();
-    this._initializeRecaptcha();
     this._initializeMap();
+    this._checkConsent();
   }
 
   public get name() { return this.contactForm.get('name'); }
@@ -176,5 +177,17 @@ export class ContactPageComponent implements OnInit {
     const script = this._document.createElement('script');
     script.src = RECAPTCHA_SCRIPT_SRC;
     head?.appendChild(script);
+  }
+
+  private async _checkConsent(): Promise<void> {
+    const consentCheck = async () => {
+      const authorizedVendorsCookie = await (window as any).cookieStore.get(('axeptio_authorized_vendors'));
+      this.isEnabled = authorizedVendorsCookie && authorizedVendorsCookie.value.includes('recaptcha_enterprise');
+      if (this.isEnabled) {
+        this._initializeRecaptcha();
+      }
+    };
+    (window as any).cookieStore.addEventListener('change', consentCheck);
+    consentCheck();
   }
 }

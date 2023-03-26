@@ -42,9 +42,12 @@
                 </ng-container>
             </div>
             <div class="form-group mt-2 mt-lg-4">
-                <button type="submit" class="fw_bold text_lg text-uppercase" [disabled]="isSending">
+                <button *ngIf="isEnabled; else cookiesMessage" type="submit" class="fw_bold text_lg text-uppercase" [disabled]="isSending">
                     Envoyer
                 </button>
+                <ng-template #cookiesMessage>
+                    <span>Veuillez accepter les cookies avant d'utiliser le formulaire de contact.</span>
+                </ng-template>
             </div>
         </form>
     </section>
