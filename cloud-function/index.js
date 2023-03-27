@@ -41,11 +41,13 @@ exports.sendMail = async (req, res) => {
     const html = `<strong>Sujet : </strong> ${req.body.subject}<br><strong>Email : </strong> ${req.body.email}<br><strong>Message : </strong><br>${req.body.message}`;
 
     const msg = {
-        to: process.env.SENDGRID_MAIL_ADDRESS,
-        from: process.env.SENDGRID_MAIL_ADDRESS,
+        to: process.env.SENDGRID_RECIPIENT_MAIL_ADDRESS,
+        from: process.env.SENDGRID_SENDER_MAIL_ADDRESS,
         subject: `Nouveau message de ${req.body.name}`,
         html
     };
+
+    console.log(msg);
 
     sgMail
         .send(msg)
