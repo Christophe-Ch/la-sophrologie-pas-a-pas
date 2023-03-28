@@ -34,4 +34,4 @@ jobs:
           min_instances: 0
           max_instances: 1
           region: europe-west1
-          secret_environment_variables: SENDGRID_API_KEY=${{ secrets.SENDGRID_API_KEY }},SENDGRID_SENDER_MAIL_ADDRESS=${{ secrets.SENDGRID_SENDER_MAIL_ADDRESS }},SENDGRID_RECIPIENT_MAIL_ADDRESS=${{ secrets.SENDGRID_RECIPIENT_MAIL_ADDRESS }}
+          secret_environment_variables: SENDER_MAIL_ADDRESS=${{ secrets.SENDER_MAIL_ADDRESS }},SENDER_MAIL_PASSWORD=${{ secrets.SENDER_MAIL_PASSWORD }},RECIPIENT_MAIL_ADDRESS=${{ secrets.RECIPIENT_MAIL_ADDRESS }},SENDER_SMTP_HOST=${{ secrets.SENDER_SMTP_HOST }}

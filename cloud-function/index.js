@@ -1,7 +1,5 @@
-const sgMail = require('@sendgrid/mail');
 const { isRequestTrusted } = require('./recaptcha');
-
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+const nodemailer = require('nodemailer');
 
 exports.sendMail = async (req, res) => {
     // Set CORS headers for preflight requests
@@ -41,16 +39,24 @@ exports.sendMail = async (req, res) => {
     const html = `<strong>Sujet : </strong> ${req.body.subject}<br><strong>Email : </strong> ${req.body.email}<br><strong>Message : </strong><br>${req.body.message}`;
 
     const msg = {
-        to: process.env.SENDGRID_RECIPIENT_MAIL_ADDRESS,
-        from: process.env.SENDGRID_SENDER_MAIL_ADDRESS,
+        to: process.env.RECIPIENT_MAIL_ADDRESS,
+        from: process.env.SENDER_MAIL_ADDRESS,
         subject: `Nouveau message de ${req.body.name}`,
         html
     };
 
-    console.log(msg);
+    const transporter = nodemailer.createTransport({
+        host: process.env.SENDER_SMTP_HOST,
+        port: 465,
+        secure: true,
+        auth: {
+            user: process.env.SENDER_MAIL_ADDRESS,
+            pass: process.env.SENDER_MAIL_PASSWORD
+        }
+    });
 
-    sgMail
-        .send(msg)
+    transporter
+        .sendMail(msg)
         .then(() => {
             res.send({
                 success: true
