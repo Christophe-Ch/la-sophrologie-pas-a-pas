@@ -180,14 +180,10 @@ export class ContactPageComponent implements OnInit {
   }
 
   private async _checkConsent(): Promise<void> {
-    const consentCheck = async () => {
-      const authorizedVendorsCookie = await (window as any).cookieStore.get(('axeptio_authorized_vendors'));
-      this.isEnabled = authorizedVendorsCookie && authorizedVendorsCookie.value.includes('recaptcha_enterprise');
-      if (this.isEnabled) {
-        this._initializeRecaptcha();
-      }
-    };
-    (window as any).cookieStore.addEventListener('change', consentCheck);
-    consentCheck();
+    const authorizedVendorsCookie = await (window as any).cookieStore.get(('axeptio_authorized_vendors'));
+    this.isEnabled = authorizedVendorsCookie && authorizedVendorsCookie.value.includes('recaptcha_enterprise');
+    if (this.isEnabled) {
+      this._initializeRecaptcha();
+    }
   }
 }

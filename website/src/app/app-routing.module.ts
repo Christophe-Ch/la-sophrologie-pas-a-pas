@@ -7,6 +7,8 @@ import { QuiSuisJePageComponent } from './qui-suis-je-page/qui-suis-je-page.comp
 import { SeancesPageComponent } from './seances-page/seances-page.component';
 import { SophrologiePageComponent } from './sophrologie-page/sophrologie-page.component';
 import { TarifsPageComponent } from './tarifs-page/tarifs-page.component';
+import { CookiesPageComponent } from './cookies-page/cookies-page.component';
+import { ConfidentialitePageComponent } from './confidentialite-page/confidentialite-page.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -18,6 +20,8 @@ const routes: Routes = [
   { path: 'tarifs/:modalOpen', component: TarifsPageComponent },
   { path: 'contact', component: ContactPageComponent },
   { path: 'mentions-legales', component: MentionsLegalesPageComponent },
+  { path: 'politique-de-cookies', component: CookiesPageComponent },
+  { path: 'politique-de-confidentialite', component: ConfidentialitePageComponent },
   { path: '**', redirectTo: '/' }
 ];
 
