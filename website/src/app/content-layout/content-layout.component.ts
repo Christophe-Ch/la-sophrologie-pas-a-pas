@@ -6,7 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./content-layout.component.scss']
 })
 export class ContentLayoutComponent implements OnInit {
-  @Input() title = '';
+  @Input() pageTitle = '';
 
   constructor() { }
 

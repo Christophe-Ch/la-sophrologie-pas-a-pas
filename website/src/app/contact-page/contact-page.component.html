@@ -1,4 +1,4 @@
-<app-content-layout title="Me contacter">
+<app-content-layout pageTitle="Me contacter">
     <section class="p-3 form-section">
         <form [formGroup]="contactForm" (submit)="submit()">
             <div class="row">
@@ -42,7 +42,8 @@
                 </ng-container>
             </div>
             <div class="form-group mt-2 mt-lg-4">
-                <button *ngIf="isEnabled; else cookiesMessage" type="submit" class="fw_bold text_lg text-uppercase" [disabled]="isSending">
+                <button *ngIf="isEnabled; else cookiesMessage" type="submit" class="fw_bold text_lg text-uppercase"
+                    [disabled]="isSending">
                     Envoyer
                 </button>
                 <ng-template #cookiesMessage>
