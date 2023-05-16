@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, Inject, OnInit } from '@angular/core';
 import { Feature, Map, View } from 'ol';
 import { Point } from 'ol/geom';
 import TileLayer from 'ol/layer/Tile';
@@ -23,7 +23,7 @@ const RECAPTCHA_SCRIPT_SRC = 'https://www.google.com/recaptcha/enterprise.js?ren
   templateUrl: './contact-page.component.html',
   styleUrls: ['./contact-page.component.scss']
 })
-export class ContactPageComponent implements OnInit {
+export class ContactPageComponent implements OnInit, AfterViewInit {
   contactForm!: FormGroup;
   isSending = false;
   isEnabled = false;
@@ -34,6 +34,7 @@ export class ContactPageComponent implements OnInit {
     private readonly _toastService: ToastService,
     private readonly _titleService: TitleService,
     private readonly _meta: Meta,
+    private readonly _cdr: ChangeDetectorRef,
     @Inject(DOCUMENT) private readonly _document: Document
   ) { }
 
@@ -62,6 +63,11 @@ export class ContactPageComponent implements OnInit {
     this._buildForm();
     this._initializeMap();
     this._checkConsent();
+  }
+
+  ngAfterViewInit(): void {
+    const axeptioScript = document.querySelector('script#axeptio') as HTMLScriptElement;
+    axeptioScript?.addEventListener('load', () => { this._checkConsent() });
   }
 
   public get name() { return this.contactForm.get('name'); }
@@ -180,10 +186,15 @@ export class ContactPageComponent implements OnInit {
   }
 
   private async _checkConsent(): Promise<void> {
-    const authorizedVendorsCookie = await (window as any).cookieStore.get(('axeptio_authorized_vendors'));
-    this.isEnabled = authorizedVendorsCookie && authorizedVendorsCookie.value.includes('recaptcha_enterprise');
-    if (this.isEnabled) {
-      this._initializeRecaptcha();
-    }
+    const axeptio = (window as any).axeptioSDK;
+    const checkAcceptance = () => {
+      this.isEnabled = axeptio.hasAcceptedVendor('recaptcha_enterprise');
+      this._cdr.detectChanges();
+      if (this.isEnabled) {
+        this._initializeRecaptcha();
+      }
+    };
+    axeptio.on('cookies:complete', checkAcceptance);
+    checkAcceptance();
   }
 }
