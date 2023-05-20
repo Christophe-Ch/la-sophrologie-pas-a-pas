@@ -15,6 +15,8 @@ import { environment } from 'src/environments/environment';
 import { TitleService } from '../title.service';
 import { Meta } from '@angular/platform-browser';
 import { DOCUMENT } from '@angular/common';
+import { AxeptioService } from '../axeptio.service';
+import { filter } from 'rxjs';
 
 const RECAPTCHA_SCRIPT_SRC = 'https://www.google.com/recaptcha/enterprise.js?render=6LcAONskAAAAAI3pMP7nClALcT03OW0nVBijMQUs';
 
@@ -35,7 +37,7 @@ export class ContactPageComponent implements OnInit, AfterViewInit {
     private readonly _titleService: TitleService,
     private readonly _meta: Meta,
     private readonly _cdr: ChangeDetectorRef,
-    @Inject(DOCUMENT) private readonly _document: Document
+    private readonly _axeptioService: AxeptioService,
   ) { }
 
   ngOnInit(): void {
@@ -179,22 +181,21 @@ export class ContactPageComponent implements OnInit, AfterViewInit {
   }
 
   private _initializeRecaptcha(): void {
-    const head = this._document.querySelector('head');
-    const script = this._document.createElement('script');
+    const head = document.querySelector('head');
+    const script = document.createElement('script');
     script.src = RECAPTCHA_SCRIPT_SRC;
     head?.appendChild(script);
   }
 
   private async _checkConsent(): Promise<void> {
-    const axeptio = (window as any).axeptioSDK;
-    const checkAcceptance = () => {
-      this.isEnabled = axeptio.hasAcceptedVendor('recaptcha_enterprise');
-      this._cdr.detectChanges();
-      if (this.isEnabled) {
-        this._initializeRecaptcha();
-      }
-    };
-    axeptio.on('cookies:complete', checkAcceptance);
-    checkAcceptance();
+    this._axeptioService.activationChange$()
+      .pipe(filter(activationStatus => activationStatus.service === 'recaptcha_enterprise'))
+      .subscribe(activationStatus => {
+        this.isEnabled = activationStatus.activation;
+        if (this.isEnabled) {
+          this._initializeRecaptcha();
+        }
+        this._cdr.detectChanges();
+      });
   }
 }
