@@ -2,7 +2,7 @@
 const { RecaptchaEnterpriseServiceClient } = require('@google-cloud/recaptcha-enterprise');
 
 const client = new RecaptchaEnterpriseServiceClient();
-const projectPath = client.projectPath('la-sophrologie-pas-a-pas');
+const projectPath = client.projectPath('anne-avenel-site');
 
 exports.isRequestTrusted = async (token) => {
     // Build the assessment request.

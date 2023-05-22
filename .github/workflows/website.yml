@@ -41,12 +41,12 @@ jobs:
           context: website/
           push: true
           tags: |
-            europe-west1-docker.pkg.dev/la-sophrologie-pas-a-pas/website/website:${{ steps.get-tag.outputs.short_ref }}
-            europe-west1-docker.pkg.dev/la-sophrologie-pas-a-pas/website/website:latest
+            europe-west1-docker.pkg.dev/anne-avenel-site/website/website:${{ steps.get-tag.outputs.short_ref }}
+            europe-west1-docker.pkg.dev/anne-avenel-site/website/website:latest
 
       - name: Deploy new revision
         uses: google-github-actions/deploy-cloudrun@v1
         with:
           service: website
-          image: europe-west1-docker.pkg.dev/la-sophrologie-pas-a-pas/website/website
+          image: europe-west1-docker.pkg.dev/anne-avenel-site/website/website
           region: europe-west1
