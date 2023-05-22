@@ -14,11 +14,10 @@ import { ToastService } from '../toast.service';
 import { environment } from 'src/environments/environment';
 import { TitleService } from '../title.service';
 import { Meta } from '@angular/platform-browser';
-import { DOCUMENT } from '@angular/common';
 import { AxeptioService } from '../axeptio.service';
 import { filter } from 'rxjs';
 
-const RECAPTCHA_SCRIPT_SRC = 'https://www.google.com/recaptcha/enterprise.js?render=6LcAONskAAAAAI3pMP7nClALcT03OW0nVBijMQUs';
+const RECAPTCHA_SCRIPT_SRC = 'https://www.google.com/recaptcha/enterprise.js?render=6LeRTS8mAAAAACeRGigW3nNW1XSBNxJadCZeWWnh';
 
 @Component({
   selector: 'app-contact-page',
@@ -86,7 +85,7 @@ export class ContactPageComponent implements OnInit, AfterViewInit {
 
     const grecaptcha = (window as any).grecaptcha;
     grecaptcha.enterprise.ready(async () => {
-      const token = await grecaptcha.enterprise.execute('6LcAONskAAAAAI3pMP7nClALcT03OW0nVBijMQUs', { action: 'SEND_MAIL' });
+      const token = await grecaptcha.enterprise.execute('6LeRTS8mAAAAACeRGigW3nNW1XSBNxJadCZeWWnh', { action: 'SEND_MAIL' });
       this._httpClient.post(environment.contactEndpoint,
         {
           token,

@@ -10,7 +10,7 @@ exports.isRequestTrusted = async (token) => {
         assessment: {
             event: {
                 token,
-                siteKey: '6LcAONskAAAAAI3pMP7nClALcT03OW0nVBijMQUs',
+                siteKey: '6LeRTS8mAAAAACeRGigW3nNW1XSBNxJadCZeWWnh',
             },
         },
         parent: projectPath,
