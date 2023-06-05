@@ -32,18 +32,21 @@
         justify-content: center;
         align-items: center;
 
-        &:hover {
+        &:hover:not(:disabled) {
             background-color: #B85A5A;
         }
 
         &:disabled {
-            background-color: #B85A5A;
+            opacity: 75%;
+            cursor: default;
+        }
+
+        &.loading {
             color: transparent;
-            background-image: url('/assets/loader.svg');
+            background-image: url('/assets/images/loader.svg');
             background-position: center;
             background-size: contain;
             background-repeat: no-repeat;
-            cursor: default;
         }
 
         img {

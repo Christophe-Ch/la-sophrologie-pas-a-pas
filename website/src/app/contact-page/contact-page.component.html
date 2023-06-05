@@ -3,7 +3,8 @@
         <form [formGroup]="contactForm" (submit)="submit()">
             <div class="row">
                 <div class="form-group col-12 col-lg-6">
-                    <label for="name" class="d-block text_lg text-start mt-3 mb-2 text-uppercase">Nom</label>
+                    <label for="name" class="d-block text_lg text-start mt-3 mb-2 text-uppercase">Nom
+                        <strong>*</strong></label>
                     <input type="text" name="name" id="name" class="text-lg" formControlName="name">
                     <ng-container *ngIf="(name?.touched || name?.dirty)">
                         <label for="name" class="d-block mt-1 text_md fst-italic text-start mb-2"
@@ -11,7 +12,8 @@
                     </ng-container>
                 </div>
                 <div class="form-group col-12 col-lg-6">
-                    <label for="email" class="d-block text_lg text-start mt-3 mb-2 text-uppercase">Email</label>
+                    <label for="email" class="d-block text_lg text-start mt-3 mb-2 text-uppercase">Email
+                        <strong>*</strong></label>
                     <input type="email" name="email" id="email" class="text-lg" formControlName="email">
                     <ng-container *ngIf="(email?.touched || email?.dirty)">
                         <label for="email" class="d-block mt-1 text_md fst-italic text-start mb-2"
@@ -24,7 +26,8 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="subject" class="d-block text_lg text-start mt-3 mb-2 text-uppercase">Sujet</label>
+                <label for="subject" class="d-block text_lg text-start mt-3 mb-2 text-uppercase">Sujet
+                    <strong>*</strong></label>
                 <input type="text" name="subject" id="subject" class="text-lg" formControlName="subject">
                 <ng-container *ngIf="(subject?.touched || subject?.dirty)">
                     <label for="subject" class="d-block mt-1 text_md fst-italic text-start mb-2"
@@ -33,7 +36,8 @@
                 </ng-container>
             </div>
             <div class="form-group">
-                <label for="message" class="d-block text_lg text-start mt-3 mb-2 text-uppercase">Message</label>
+                <label for="message" class="d-block text_lg text-start mt-3 mb-2 text-uppercase">Message
+                    <strong>*</strong></label>
                 <textarea name="message" id="message" class="text-lg" rows="10" formControlName="message"></textarea>
                 <ng-container *ngIf="(message?.touched || message?.dirty)">
                     <label for="message" class="d-block text_md fst-italic text-start mb-2"
@@ -43,7 +47,8 @@
             </div>
             <div class="form-group mt-2 mt-lg-4">
                 <button *ngIf="isEnabled; else cookiesMessage" type="submit" class="fw_bold text_lg text-uppercase"
-                    [disabled]="isSending">
+                    [disabled]="isSending || contactForm.invalid" [class.loading]="isSending"
+                    [title]="contactForm.invalid ? 'Vérifiez les champs du formulaire': ''">
                     Envoyer
                 </button>
                 <ng-template #cookiesMessage>
