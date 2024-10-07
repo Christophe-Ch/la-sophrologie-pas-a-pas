@@ -19,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ToastComponent } from './toast/toast.component';
 import { CookiesPageComponent } from './cookies-page/cookies-page.component';
 import { ConfidentialitePageComponent } from './confidentialite-page/confidentialite-page.component';
+import { SeniorsPageComponent } from './seniors-page/seniors-page.component';
 
 @NgModule({
   declarations: [
@@ -35,16 +36,17 @@ import { ConfidentialitePageComponent } from './confidentialite-page/confidentia
     ContentLayoutComponent,
     ToastComponent,
     CookiesPageComponent,
-    ConfidentialitePageComponent
+    ConfidentialitePageComponent,
+    SeniorsPageComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     NgbModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

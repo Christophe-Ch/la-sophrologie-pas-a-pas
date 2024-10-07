@@ -1,0 +1,102 @@
+@import "../../style/sizes";
+
+.content-container {
+  margin-inline: auto;
+}
+
+section {
+  width: 80%;
+}
+
+.picture-container {
+  height: auto;
+  aspect-ratio: 1 / 1;
+
+  img {
+    border-radius: 0 2rem 0 2rem;
+    box-shadow: none;
+  }
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+article {
+  color: var(--light-color);
+  border-radius: 2rem;
+  padding: 2rem;
+  margin-block: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: -4px 4px 0 0 var(--alpha-25-primary-color);
+  position: relative;
+  overflow: hidden;
+
+  ul {
+    margin-bottom: 0;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  &::before {
+    z-index: -2;
+    background-color: var(--primary-color);
+  }
+
+  &::after {
+    z-index: -1;
+    opacity: 10%;
+    background-repeat: no-repeat;
+  }
+
+  &.physical::after {
+    background-position: bottom left;
+    background-image: url("/assets/seniors-physical.png");
+  }
+  &.sport::after {
+    background-position: left top;
+    background-image: url("/assets/seniors-sport.png");
+  }
+  &.cognition::after {
+    background-position: center;
+    background-image: url("/assets/seniors-cognition.png");
+  }
+  &.body::after {
+    background-image: url("/assets/seniors-body.png");
+  }
+}
+
+@media screen and (min-width: $lg) {
+  .column {
+    padding: 1rem;
+
+    &:last-child article:last-child {
+      flex: 1;
+    }
+  }
+
+  article {
+    padding: 3rem;
+    margin-block: 1rem;
+
+    strong {
+      width: 75%;
+    }
+
+    ul {
+      width: 75%;
+    }
+  }
+}
