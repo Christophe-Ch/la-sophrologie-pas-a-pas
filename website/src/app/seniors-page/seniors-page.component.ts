@@ -18,12 +18,12 @@ export class SeniorsPageComponent implements OnInit {
     this._meta.updateTag({
       name: 'description',
       content:
-        "Découvrez le parcours et les compétences d'Anne Avenel Dubois, sophrologue à Saint-Aignan-Sur-Ry.",
+        'Des techniques de relaxation adaptées aux séniors pour réduire le stress, améliorer le bien-être et favoriser une vie équilibrée.',
     });
     this._meta.updateTag({
       name: 'og:description',
       content:
-        "Découvrez le parcours et les compétences d'Anne Avenel Dubois, sophrologue à Saint-Aignan-Sur-Ry.",
+        'Des techniques de relaxation adaptées aux séniors pour réduire le stress, améliorer le bien-être et favoriser une vie équilibrée.',
     });
     this._meta.updateTag({
       name: 'og:image',
