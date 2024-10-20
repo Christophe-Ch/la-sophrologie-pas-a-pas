@@ -1,4 +1,4 @@
-@import 'sizes';
+@import "sizes";
 
 // FONT WEIGHT
 .fw_light {
@@ -79,7 +79,7 @@ strong {
   font-weight: var(--fw-bold);
 }
 
-ul:not(.nav-links) {
+ul:not(.nav-links > ul) {
   margin: 2rem 0 2rem 1.5rem;
   text-align: left;
   list-style-type: unset;

@@ -1,17 +1,73 @@
 <nav>
-    <input type="checkbox" name="nav_toggle" id="nav_toggle" class="nav-toggle" #close>
-    <label for="nav_toggle" class="nav-toggle-label">
-        <span></span>
-        <span></span>
-        <span></span>
-    </label>
-    <ul class="nav-links">
-        <li class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a
-                routerLink="/">Accueil</a></li>
-        <li class="nav-link" routerLinkActive="active"><a routerLink="/sophrologie">Sophrologie</a></li>
-        <li class="nav-link" routerLinkActive="active"><a routerLink="/seances">Déroulement des séances</a></li>
-        <li class="nav-link" routerLinkActive="active"><a routerLink="/qui-suis-je">Qui suis-je</a></li>
-        <li class="nav-link" routerLinkActive="active"><a routerLink="/tarifs">Tarifs</a></li>
-        <li class="nav-link" routerLinkActive="active"><a routerLink="/contact">Contact</a></li>
+  <input
+    type="checkbox"
+    name="nav_toggle"
+    id="nav_toggle"
+    class="nav-toggle"
+    #close
+  />
+  <label for="nav_toggle" class="nav-toggle-label">
+    <span></span>
+    <span></span>
+    <span></span>
+  </label>
+  <div class="nav-links">
+    <ul>
+      <li
+        class="nav-link"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <a routerLink="/">Accueil</a>
+      </li>
+      <li class="nav-link" routerLinkActive="active">
+        <a routerLink="/sophrologie">Sophrologie</a>
+      </li>
+      <li class="nav-link" routerLinkActive="active">
+        <a routerLink="/seances">Déroulement des séances</a>
+      </li>
+      <li
+        class="nav-link submenu-link"
+        (mouseover)="showSubmenu()"
+        (mouseleave)="closeSubmenu()"
+      >
+        <label for="sessions">Types de séances proposées</label>
+        <input type="checkbox" id="sessions" #submenuToggle />
+        <ul class="submenu">
+          <li class="nav-link" routerLinkActive="active">
+            <a routerLink="/seances/individuelle">Individuelle</a>
+          </li>
+          <li class="nav-link" routerLinkActive="active">
+            <a routerLink="/seances/groupe-pour-adulte">Groupe pour adulte</a>
+          </li>
+          <li class="nav-link" routerLinkActive="active">
+            <a routerLink="/seances/groupe-pour-adolescent"
+              >Groupe pour adolescent</a
+            >
+          </li>
+          <li class="nav-link" routerLinkActive="active">
+            <a routerLink="/seances/preparer-un-examen">Préparer un examen</a>
+          </li>
+          <li class="nav-link" routerLinkActive="active">
+            <a routerLink="/seances/groupe-pour-enfant">Groupe pour enfant</a>
+          </li>
+          <li class="nav-link" routerLinkActive="active">
+            <a routerLink="/seniors">Séniors</a>
+          </li>
+          <li class="nav-link" routerLinkActive="active">
+            <a routerLink="/entreprises">Entreprises</a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav-link" routerLinkActive="active">
+        <a routerLink="/qui-suis-je">Qui suis-je</a>
+      </li>
+      <li class="nav-link" routerLinkActive="active">
+        <a routerLink="/tarifs">Tarifs</a>
+      </li>
+      <li class="nav-link" routerLinkActive="active">
+        <a routerLink="/contact">Contact</a>
+      </li>
     </ul>
+  </div>
 </nav>
