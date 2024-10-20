@@ -14,16 +14,16 @@ export class EntreprisesPageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this._titleService.setTitle('Sophrologie pour les séniors');
+    this._titleService.setTitle('Sophrologie en entreprise');
     this._meta.updateTag({
       name: 'description',
       content:
-        'Des techniques de relaxation adaptées aux séniors pour réduire le stress, améliorer le bien-être et favoriser une vie équilibrée.',
+        'Apportez bien-être à vos salariés avec la sophrologie en entreprise : réduisez le stress et améliorez la qualité de vie au travail.',
     });
     this._meta.updateTag({
       name: 'og:description',
       content:
-        'Des techniques de relaxation adaptées aux séniors pour réduire le stress, améliorer le bien-être et favoriser une vie équilibrée.',
+        'Apportez bien-être à vos salariés avec la sophrologie en entreprise : réduisez le stress et améliorez la qualité de vie au travail.',
     });
     this._meta.updateTag({
       name: 'og:image',
