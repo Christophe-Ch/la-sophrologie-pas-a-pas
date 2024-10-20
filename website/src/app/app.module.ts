@@ -20,6 +20,7 @@ import { ToastComponent } from './toast/toast.component';
 import { CookiesPageComponent } from './cookies-page/cookies-page.component';
 import { ConfidentialitePageComponent } from './confidentialite-page/confidentialite-page.component';
 import { SeniorsPageComponent } from './seniors-page/seniors-page.component';
+import { EntreprisesPageComponent } from './entreprises-page/entreprises-page.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { SeniorsPageComponent } from './seniors-page/seniors-page.component';
     CookiesPageComponent,
     ConfidentialitePageComponent,
     SeniorsPageComponent,
+    EntreprisesPageComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

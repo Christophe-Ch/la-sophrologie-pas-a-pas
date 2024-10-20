@@ -10,6 +10,7 @@ import { TarifsPageComponent } from './tarifs-page/tarifs-page.component';
 import { CookiesPageComponent } from './cookies-page/cookies-page.component';
 import { ConfidentialitePageComponent } from './confidentialite-page/confidentialite-page.component';
 import { SeniorsPageComponent } from './seniors-page/seniors-page.component';
+import { EntreprisesPageComponent } from './entreprises-page/entreprises-page.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'tarifs', component: TarifsPageComponent },
   { path: 'tarifs/:modalOpen', component: TarifsPageComponent },
   { path: 'seniors', component: SeniorsPageComponent },
+  { path: 'entreprises', component: EntreprisesPageComponent },
   { path: 'contact', component: ContactPageComponent },
   { path: 'mentions-legales', component: MentionsLegalesPageComponent },
   { path: 'politique-de-cookies', component: CookiesPageComponent },
