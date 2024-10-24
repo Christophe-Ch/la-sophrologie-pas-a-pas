@@ -1,5 +1,5 @@
 /* Importing Bootstrap SCSS file. */
-@import '../node_modules/bootstrap/scss/bootstrap.scss';
+@import "bootstrap/scss/bootstrap.scss";
 
 @import "style/reset";
 @import "style/variables";
@@ -12,8 +12,8 @@
 @import "style/modal";
 // @import 'components/index';
 // @import 'pages/index';
-// @import "~bootstrap/scss/bootstrap-grid";
-// @import "~bootstrap/scss/bootstrap-utilities";
+// @import "bootstrap/scss/bootstrap-grid";
+// @import "bootstrap/scss/bootstrap-utilities";
 
 html,
 body {
