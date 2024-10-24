@@ -1,11 +1,11 @@
-name: Contact API deployment
+name: Reviews fetcher deployment
 on:
   push:
     branches:
       - main
     paths:
-      - .github/workflows/contact-form-backend.yml
-      - cloud-function/contact-form/**
+      - .github/workflows/reviews-fetcher.yml
+      - cloud-function/reviews-fetcher/**
 jobs:
   Deploy:
     runs-on: ubuntu-latest
@@ -26,12 +26,14 @@ jobs:
         id: deploy-function
         uses: google-github-actions/deploy-cloud-functions@v2
         with:
-          name: send-mail
-          runtime: nodejs18
-          entry_point: sendMail
+          name: fetch-reviews
+          runtime: nodejs20
+          entry_point: fetchReviews
           memory_mb: 128
-          source_dir: cloud-function/contact-form
+          source_dir: cloud-function/reviews-fetcher
           min_instances: 0
           max_instances: 1
           region: europe-west1
-          secret_environment_variables: SENDER_MAIL_ADDRESS=${{ secrets.SENDER_MAIL_ADDRESS }},SENDER_MAIL_PASSWORD=${{ secrets.SENDER_MAIL_PASSWORD }},RECIPIENT_MAIL_ADDRESS=${{ secrets.RECIPIENT_MAIL_ADDRESS }},SENDER_SMTP_HOST=${{ secrets.SENDER_SMTP_HOST }}
+          secret_environment_variables: GOOGLE_PLACES_KEY=${{ secrets.GOOGLE_PLACES_KEY }}
+          event_trigger_type: google.pubsub.topic.publish
+          event_trigger_resource: projects/anne-avenel-site/topics/reviews
