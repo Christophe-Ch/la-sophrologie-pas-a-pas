@@ -14,7 +14,7 @@ export class HomePageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this._titleService.setTitle('Sophrologue');
+    this._titleService.setTitle('Anne Avenel Dubois - Sophrologue', false);
     this._meta.updateTag({
       name: 'description',
       content:
