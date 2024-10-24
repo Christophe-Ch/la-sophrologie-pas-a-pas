@@ -1,4 +1,9 @@
-import { AfterViewInit, ChangeDetectorRef, Component, Inject, OnInit } from '@angular/core';
+import {
+  afterNextRender,
+  ChangeDetectorRef,
+  Component,
+  OnInit,
+} from '@angular/core';
 import { Feature, Map, View } from 'ol';
 import { Point } from 'ol/geom';
 import TileLayer from 'ol/layer/Tile';
@@ -17,14 +22,15 @@ import { Meta } from '@angular/platform-browser';
 import { AxeptioService } from '../axeptio.service';
 import { filter } from 'rxjs';
 
-const RECAPTCHA_SCRIPT_SRC = 'https://www.google.com/recaptcha/enterprise.js?render=6LeRTS8mAAAAACeRGigW3nNW1XSBNxJadCZeWWnh';
+const RECAPTCHA_SCRIPT_SRC =
+  'https://www.google.com/recaptcha/enterprise.js?render=6LeRTS8mAAAAACeRGigW3nNW1XSBNxJadCZeWWnh';
 
 @Component({
   selector: 'app-contact-page',
   templateUrl: './contact-page.component.html',
-  styleUrls: ['./contact-page.component.scss']
+  styleUrls: ['./contact-page.component.scss'],
 })
-export class ContactPageComponent implements OnInit, AfterViewInit {
+export class ContactPageComponent implements OnInit {
   contactForm!: FormGroup;
   isSending = false;
   isEnabled = false;
@@ -36,45 +42,61 @@ export class ContactPageComponent implements OnInit, AfterViewInit {
     private readonly _titleService: TitleService,
     private readonly _meta: Meta,
     private readonly _cdr: ChangeDetectorRef,
-    private readonly _axeptioService: AxeptioService,
-  ) { }
+    private readonly _axeptioService: AxeptioService
+  ) {
+    afterNextRender(() => {
+      this._initializeMap();
+      this._checkConsent();
+
+      const axeptioScript = document.querySelector(
+        'script#axeptio'
+      ) as HTMLScriptElement;
+      axeptioScript?.addEventListener('load', () => {
+        this._checkConsent();
+      });
+    });
+  }
 
   ngOnInit(): void {
     this._titleService.setTitle('Contact');
     this._meta.updateTag({
       name: 'description',
-      content: 'Contactez-moi pour toute demande de renseignements ou pour prendre rendez-vous. Je suis à votre écoute pour répondre à vos questions sur mes séances de sophrologie.'
+      content:
+        'Contactez-moi pour toute demande de renseignements ou pour prendre rendez-vous. Je suis à votre écoute pour répondre à vos questions sur mes séances de sophrologie.',
     });
     this._meta.updateTag({
       name: 'og:description',
-      content: 'Contactez-moi pour toute demande de renseignements ou pour prendre rendez-vous. Je suis à votre écoute pour répondre à vos questions sur mes séances de sophrologie.'
+      content:
+        'Contactez-moi pour toute demande de renseignements ou pour prendre rendez-vous. Je suis à votre écoute pour répondre à vos questions sur mes séances de sophrologie.',
     });
     this._meta.updateTag({
       name: 'og:image',
-      content: '/assets/home.jpg'
+      content: '/assets/home.jpg',
     });
     this._meta.updateTag({
       name: 'keywords',
-      content: 'Sophrologie, séances de sophrologie, Saint-Aignan-Sur-Ry, Anne Avenel Dubois, contact, rendez-vous, demande de renseignements, qualité de vie'
+      content:
+        'Sophrologie, séances de sophrologie, Saint-Aignan-Sur-Ry, Anne Avenel Dubois, contact, rendez-vous, demande de renseignements, qualité de vie',
     });
     this._meta.updateTag({
       name: 'twitter:card',
-      content: 'summary'
+      content: 'summary',
     });
     this._buildForm();
-    this._initializeMap();
-    this._checkConsent();
   }
 
-  ngAfterViewInit(): void {
-    const axeptioScript = document.querySelector('script#axeptio') as HTMLScriptElement;
-    axeptioScript?.addEventListener('load', () => { this._checkConsent() });
+  public get name() {
+    return this.contactForm.get('name');
   }
-
-  public get name() { return this.contactForm.get('name'); }
-  public get email() { return this.contactForm.get('email'); }
-  public get subject() { return this.contactForm.get('subject'); }
-  public get message() { return this.contactForm.get('message'); }
+  public get email() {
+    return this.contactForm.get('email');
+  }
+  public get subject() {
+    return this.contactForm.get('subject');
+  }
+  public get message() {
+    return this.contactForm.get('message');
+  }
 
   submit(): void {
     if (this.contactForm.invalid) {
@@ -85,21 +107,27 @@ export class ContactPageComponent implements OnInit, AfterViewInit {
 
     const grecaptcha = (window as any).grecaptcha;
     grecaptcha.enterprise.ready(async () => {
-      const token = await grecaptcha.enterprise.execute('6LeRTS8mAAAAACeRGigW3nNW1XSBNxJadCZeWWnh', { action: 'SEND_MAIL' });
-      this._httpClient.post(environment.contactEndpoint,
-        {
-          token,
-          name: this.name!.value,
-          subject: this.subject!.value,
-          email: this.email!.value,
-          message: this.message!.value.replaceAll('\n', '<br>')
-        },
-        {
-          headers: {
-            'Access-Control-Allow-Origin': '*',
-            'Content-Type': 'application/json'
+      const token = await grecaptcha.enterprise.execute(
+        '6LeRTS8mAAAAACeRGigW3nNW1XSBNxJadCZeWWnh',
+        { action: 'SEND_MAIL' }
+      );
+      this._httpClient
+        .post(
+          environment.contactEndpoint,
+          {
+            token,
+            name: this.name!.value,
+            subject: this.subject!.value,
+            email: this.email!.value,
+            message: this.message!.value.replaceAll('\n', '<br>'),
+          },
+          {
+            headers: {
+              'Access-Control-Allow-Origin': '*',
+              'Content-Type': 'application/json',
+            },
           }
-        })
+        )
         .subscribe((response: any) => {
           this.isSending = false;
           if (response.success) {
@@ -107,46 +135,40 @@ export class ContactPageComponent implements OnInit, AfterViewInit {
             this.contactForm.reset();
           } else {
             switch (response.errorType) {
-              case "recaptchaValidation":
-                this._toastService.showError('Le captcha a échoué, veuillez rafraichir la page et renvoyer votre message.');
+              case 'recaptchaValidation':
+                this._toastService.showError(
+                  'Le captcha a échoué, veuillez rafraichir la page et renvoyer votre message.'
+                );
                 break;
-              case "missingFields":
-                this._toastService.showError('Veuillez vérifier que tous les champs sont bien renseignés.');
+              case 'missingFields':
+                this._toastService.showError(
+                  'Veuillez vérifier que tous les champs sont bien renseignés.'
+                );
                 break;
-              case "mailSending":
-                this._toastService.showError('Le message n\'a pas pu être envoyé, veuillez réessayer plus tard.');
+              case 'mailSending':
+                this._toastService.showError(
+                  "Le message n'a pas pu être envoyé, veuillez réessayer plus tard."
+                );
                 break;
             }
           }
-        })
+        });
     });
   }
 
   private _buildForm(): void {
     this.contactForm = this._formBuilder.group({
-      name: [
-        '',
-        Validators.required
-      ],
+      name: ['', Validators.required],
       email: [
         '',
         {
-          validators: [
-            Validators.required,
-            Validators.email
-          ],
-          updateOn: 'blur'
-        }
+          validators: [Validators.required, Validators.email],
+          updateOn: 'blur',
+        },
       ],
-      subject: [
-        '',
-        Validators.required
-      ],
-      message: [
-        '',
-        Validators.required
-      ]
-    })
+      subject: ['', Validators.required],
+      message: ['', Validators.required],
+    });
   }
 
   private _initializeMap(): void {
@@ -154,13 +176,13 @@ export class ContactPageComponent implements OnInit, AfterViewInit {
       target: 'map',
       layers: [
         new TileLayer({
-          source: new OSM()
-        })
+          source: new OSM(),
+        }),
       ],
       view: new View({
-        center: fromLonLat([1.351260, 49.503270]),
-        zoom: 13
-      })
+        center: fromLonLat([1.35126, 49.50327]),
+        zoom: 13,
+      }),
     });
 
     const markers = new layer.Vector({
@@ -169,13 +191,13 @@ export class ContactPageComponent implements OnInit, AfterViewInit {
         image: new Icon({
           anchor: [0.5, 1],
           src: '/assets/marker.png',
-          scale: 0.5
-        })
-      })
+          scale: 0.5,
+        }),
+      }),
     });
     map.addLayer(markers);
 
-    const marker = new Feature(new Point(fromLonLat([1.351260, 49.503270])));
+    const marker = new Feature(new Point(fromLonLat([1.35126, 49.50327])));
     markers.getSource()?.addFeature(marker);
   }
 
@@ -187,9 +209,15 @@ export class ContactPageComponent implements OnInit, AfterViewInit {
   }
 
   private async _checkConsent(): Promise<void> {
-    this._axeptioService.activationChange$()
-      .pipe(filter(activationStatus => activationStatus.service === 'recaptcha_enterprise'))
-      .subscribe(activationStatus => {
+    this._axeptioService
+      .activationChange$()
+      .pipe(
+        filter(
+          (activationStatus) =>
+            activationStatus.service === 'recaptcha_enterprise'
+        )
+      )
+      .subscribe((activationStatus) => {
         this.isEnabled = activationStatus.activation;
         if (this.isEnabled) {
           this._initializeRecaptcha();

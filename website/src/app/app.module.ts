@@ -1,5 +1,9 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {
+  BrowserModule,
+  provideClientHydration,
+  withHttpTransferCacheOptions,
+} from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,33 +19,46 @@ import { ContactPageComponent } from './contact-page/contact-page.component';
 import { MentionsLegalesPageComponent } from './mentions-legales-page/mentions-legales-page.component';
 import { ContentLayoutComponent } from './content-layout/content-layout.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { ToastComponent } from './toast/toast.component';
 import { CookiesPageComponent } from './cookies-page/cookies-page.component';
 import { ConfidentialitePageComponent } from './confidentialite-page/confidentialite-page.component';
 import { SeniorsPageComponent } from './seniors-page/seniors-page.component';
 import { EntreprisesPageComponent } from './entreprises-page/entreprises-page.component';
+import { provideHttpClient, withFetch } from '@angular/common/http';
 
-@NgModule({ declarations: [
-        AppComponent,
-        MenuComponent,
-        FooterComponent,
-        HomePageComponent,
-        SophrologiePageComponent,
-        SeancesPageComponent,
-        QuiSuisJePageComponent,
-        TarifsPageComponent,
-        ContactPageComponent,
-        MentionsLegalesPageComponent,
-        ContentLayoutComponent,
-        ToastComponent,
-        CookiesPageComponent,
-        ConfidentialitePageComponent,
-        SeniorsPageComponent,
-        EntreprisesPageComponent,
-    ],
-    bootstrap: [AppComponent], imports: [BrowserModule.withServerTransition({ appId: 'serverApp' }),
-        AppRoutingModule,
-        NgbModule,
-        ReactiveFormsModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
+@NgModule({
+  declarations: [
+    AppComponent,
+    MenuComponent,
+    FooterComponent,
+    HomePageComponent,
+    SophrologiePageComponent,
+    SeancesPageComponent,
+    QuiSuisJePageComponent,
+    TarifsPageComponent,
+    ContactPageComponent,
+    MentionsLegalesPageComponent,
+    ContentLayoutComponent,
+    ToastComponent,
+    CookiesPageComponent,
+    ConfidentialitePageComponent,
+    SeniorsPageComponent,
+    EntreprisesPageComponent,
+  ],
+  bootstrap: [AppComponent],
+  imports: [
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    AppRoutingModule,
+    NgbModule,
+    ReactiveFormsModule,
+  ],
+  providers: [
+    provideHttpClient(withFetch()),
+    provideClientHydration(
+      withHttpTransferCacheOptions({
+        includePostRequests: true,
+      })
+    ),
+  ],
+})
 export class AppModule {}

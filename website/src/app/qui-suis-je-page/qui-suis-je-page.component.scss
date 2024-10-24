@@ -1,3 +1,74 @@
+@import "../../style/sizes";
+
 .content-container {
-    margin-inline: auto;
+  margin-inline: auto;
+}
+
+.review-section {
+  background: var(--primary-color);
+  color: var(--light-color);
+  padding: 3rem;
+  gap: 2rem;
+}
+
+.previous,
+.next {
+  border: 2px solid var(--light-color);
+  display: inline-flex;
+  height: 2.5rem;
+  aspect-ratio: 1;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.buttons {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.review {
+  display: inline-flex;
+  flex-direction: column;
+  height: 25rem;
+  padding: 1.5rem;
+  text-align: start;
+  background-color: var(--light-color);
+  color: var(--primary-color);
+  border-radius: 1rem;
+  outline: 4px solid rgba(255, 255, 255, 0.3);
+
+  .author {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .content {
+    overflow: auto;
+    margin-bottom: 0;
+    font-size: 1rem;
+  }
+}
+
+@media screen and (min-width: $lg) {
+  .review-section {
+    h2 {
+      text-align: right;
+      padding-inline: 1rem;
+      font-size: 3.5rem;
+      line-height: 4rem;
+    }
+  }
+
+  .review {
+    height: 20rem;
+    padding: 2rem;
+
+    .content {
+      font-size: 20px;
+    }
+  }
 }

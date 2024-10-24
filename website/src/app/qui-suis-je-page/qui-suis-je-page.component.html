@@ -46,4 +46,21 @@
       pour lire l'article paru dans Le Bulletin !
     </p>
   </section>
+  <section
+    class="col-12 d-flex flex-column flex-lg-row align-items-center review-section"
+  >
+    <h2 class="col-lg-5 col-12">Ils partagent leurs expériences</h2>
+    @if (reviews.length > 0) {
+    <div class="review-container col-lg-7 col-12">
+      <div class="review col-lg-8">
+        <span class="author">{{ reviews[reviewIndex].author_name }}</span>
+        <p class="content">{{ reviews[reviewIndex].text }}</p>
+      </div>
+      <div class="buttons">
+        <div class="div previous" (click)="previousReview()">&#8592;</div>
+        <div class="div next" (click)="nextReview()">&#8594;</div>
+      </div>
+    </div>
+    }
+  </section>
 </app-content-layout>
