@@ -37,3 +37,4 @@ jobs:
           secret_environment_variables: GOOGLE_PLACES_KEY=${{ secrets.GOOGLE_PLACES_KEY }}
           event_trigger_type: google.pubsub.topic.publish
           event_trigger_resource: projects/anne-avenel-site/topics/reviews
+          ingress_settings: ALLOW_INTERNAL_ONLY
