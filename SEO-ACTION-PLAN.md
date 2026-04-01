@@ -89,7 +89,7 @@ server.use((_, res, next) => {
 
 ---
 
-### Étape 5 — Injecter le JSON-LD `LocalBusiness` sur la homepage
+### ~~Étape 5 — Injecter le JSON-LD `LocalBusiness` sur la homepage~~ ✅
 
 Fichier : `website/src/app/home-page/home-page.component.ts`
 
