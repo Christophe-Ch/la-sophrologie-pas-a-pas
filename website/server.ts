@@ -39,6 +39,11 @@ export function app(): express.Express {
     res.sendFile(join(browserDistFolder, 'sitemap.xml'));
   });
 
+  server.get('/llms.txt', (req, res) => {
+    res.type('text/plain');
+    res.sendFile(join(browserDistFolder, 'llms.txt'));
+  });
+
   // Serve static files from /browser
   server.get('**', express.static(browserDistFolder, {
     maxAge: '1y',

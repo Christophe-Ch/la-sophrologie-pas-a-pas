@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-confidentialite-page',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConfidentialitePageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private readonly _meta: Meta) { }
 
   ngOnInit(): void {
+    this._meta.updateTag({ name: 'robots', content: 'noindex, follow' });
   }
 
 }

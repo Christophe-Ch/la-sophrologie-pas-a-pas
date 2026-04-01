@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Meta } from '@angular/platform-browser';
 import { TitleService } from '../title.service';
 
 @Component({
@@ -6,8 +7,14 @@ import { TitleService } from '../title.service';
   templateUrl: './mentions-legales-page.component.html',
   styleUrls: ['./mentions-legales-page.component.scss']
 })
-export class MentionsLegalesPageComponent {
-  constructor(titleService: TitleService) {
-    titleService.setTitle('Mentions légales');
+export class MentionsLegalesPageComponent implements OnInit {
+  constructor(
+    private readonly _titleService: TitleService,
+    private readonly _meta: Meta
+  ) {}
+
+  ngOnInit(): void {
+    this._titleService.setTitle('Mentions légales');
+    this._meta.updateTag({ name: 'robots', content: 'noindex, follow' });
   }
 }
