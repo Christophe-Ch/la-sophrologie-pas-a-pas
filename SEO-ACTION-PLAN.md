@@ -5,7 +5,7 @@
 
 ## Sprint 1 — Critique (une demi-journée)
 
-### Étape 1 — Activer la compression gzip dans `server.ts`
+### ~~Étape 1 — Activer la compression gzip dans `server.ts`~~ ✅
 
 ```bash
 cd website
@@ -59,7 +59,7 @@ server.get('/sitemap.xml', (req, res) => {
 
 ---
 
-### Étape 3 — Corriger `lang="en"` → `lang="fr"`
+### ~~Étape 3 — Corriger `lang="en"` → `lang="fr"`~~ ✅
 
 Fichier : `website/src/index.html`, ligne 2.
 
@@ -73,7 +73,7 @@ Fichier : `website/src/index.html`, ligne 2.
 
 ---
 
-### Étape 4 — Ajouter les security headers dans `server.ts`
+### ~~Étape 4 — Ajouter les security headers dans `server.ts`~~ ✅
 
 Dans `website/server.ts`, ajouter avant le middleware statique :
 

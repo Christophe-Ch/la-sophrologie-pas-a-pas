@@ -1,6 +1,7 @@
 import { APP_BASE_HREF } from '@angular/common';
 import { CommonEngine } from '@angular/ssr';
 import express from 'express';
+import compression from 'compression';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, resolve } from 'node:path';
 import AppServerModule from './src/main.server';
@@ -8,6 +9,14 @@ import AppServerModule from './src/main.server';
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
   const server = express();
+  server.use(compression());
+  server.use((_, res, next) => {
+    res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload');
+    res.setHeader('X-Content-Type-Options', 'nosniff');
+    res.setHeader('X-Frame-Options', 'SAMEORIGIN');
+    res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+    next();
+  });
   const serverDistFolder = dirname(fileURLToPath(import.meta.url));
   const browserDistFolder = resolve(serverDistFolder, '../browser');
   const indexHtml = join(serverDistFolder, 'index.server.html');
