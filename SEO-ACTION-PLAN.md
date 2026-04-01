@@ -362,7 +362,7 @@ Même pattern que l'étape 5. JSON-LD à injecter :
 
 ---
 
-### Étape 11 — Optimiser l'image hero pour le LCP mobile
+### ~~Étape 11 — Optimiser l'image hero pour le LCP mobile~~ ✅
 
 ~~Fichier : `website/src/app/home-page/home-page.component.html`~~ ✅
 
