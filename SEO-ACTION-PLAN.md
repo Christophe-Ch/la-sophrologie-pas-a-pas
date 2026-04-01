@@ -408,20 +408,20 @@ anne.avenel.sophrologie&#64;laposte.net
 
 ---
 
-## Sprint 3 — Medium (1 mois)
+## ~~Sprint 3 — Medium (1 mois)~~ ✅
 
-### Étape 13 — Nettoyer le sitemap
+### ~~Étape 13 — Nettoyer le sitemap~~ ✅
 
 Fichier : `website/src/sitemap.xml` (après déplacement à l'étape 2)
 
 - ~~Supprimer les 18 entrées `lasophrologiepasapas.fr` (non-www)~~ ✅
-- Supprimer les trailing slashes des URLs pour correspondre au router Angular (ex. `/tarifs` pas `/tarifs/`)
-- Mettre à jour les dates `lastmod` (toutes figées à `2024-10-24`)
-- Supprimer les balises `<priority>` et `<changefreq>` (ignorées par Google)
+- ~~Supprimer les trailing slashes des URLs pour correspondre au router Angular (ex. `/tarifs` pas `/tarifs/`)~~ ✅
+- ~~Mettre à jour les dates `lastmod` (toutes figées à `2024-10-24`)~~ ✅
+- ~~Supprimer les balises `<priority>` et `<changefreq>` (ignorées par Google)~~ ✅
 
 ---
 
-### Étape 14 — Standardiser le NAP (Nom / Adresse / Téléphone)
+### ~~Étape 14 — Standardiser le NAP (Nom / Adresse / Téléphone)~~ ✅
 
 Choisir cette forme canonique et l'appliquer partout :
 ```
@@ -435,7 +435,7 @@ Pages à corriger :
 
 ---
 
-### Étape 15 — Corriger les meta descriptions trop longues
+### ~~Étape 15 — Corriger les meta descriptions trop longues~~ ✅
 
 | Page | Longueur actuelle | Action |
 |---|---|---|
@@ -454,7 +454,7 @@ Pages avec les keywords de `/qui-suis-je` copiés par erreur :
 
 ---
 
-### Étape 17 — Déplacer le script Axeptio hors du `<head>` inline
+### ~~Étape 17 — Déplacer le script Axeptio hors du `<head>` inline~~ ✅
 
 Fichier : `website/src/index.html`
 
@@ -462,7 +462,7 @@ Le bloc Axeptio inline bloque le rendu. Le déplacer vers la fin du `<body>` ou 
 
 ---
 
-### Étape 18 — Ajouter `noindex` aux pages légales
+### ~~Étape 18 — Ajouter `noindex` aux pages légales~~ ✅
 
 Dans les composants `mentions-legales`, `politique-de-cookies`, `politique-de-confidentialite` :
 
@@ -472,7 +472,7 @@ this._meta.updateTag({ name: 'robots', content: 'noindex, follow' });
 
 ---
 
-### Étape 19 — Corriger les `<span>` → `<h3>` sur la page sophrologie
+### ~~Étape 19 — Corriger les `<span>` → `<h3>` sur la page sophrologie~~ ✅
 
 Fichier : `website/src/app/sophrologie-page/sophrologie-page.component.html`
 
@@ -480,7 +480,7 @@ Les trois sous-titres "Retrouver le bien-être", "Développer ses capacités", "
 
 ---
 
-### Étape 20 — Créer `llms.txt`
+### ~~Étape 20 — Créer `llms.txt`~~ ✅
 
 Créer `website/src/llms.txt` (servi comme fichier statique, même pattern que robots.txt) :
 

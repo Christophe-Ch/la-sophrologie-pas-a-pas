@@ -69,6 +69,15 @@
         color: #FCFAE8;
         overflow-wrap: anywhere;
 
+        a {
+            color: inherit;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
         p {
             margin: 0;
         }
