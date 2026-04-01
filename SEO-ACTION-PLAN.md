@@ -28,7 +28,7 @@ server.use(compression());
 
 ---
 
-### Étape 2 — Créer `robots.txt` et corriger le `sitemap.xml`
+### ~~Étape 2 — Créer `robots.txt` et corriger le `sitemap.xml`~~ ✅
 
 **2a. Créer `website/src/robots.txt`** (à la racine `src/`, pas dans `assets/`) :
 
@@ -414,7 +414,7 @@ anne.avenel.sophrologie&#64;laposte.net
 
 Fichier : `website/src/sitemap.xml` (après déplacement à l'étape 2)
 
-- Supprimer les 18 entrées `lasophrologiepasapas.fr` (non-www)
+- ~~Supprimer les 18 entrées `lasophrologiepasapas.fr` (non-www)~~ ✅
 - Supprimer les trailing slashes des URLs pour correspondre au router Angular (ex. `/tarifs` pas `/tarifs/`)
 - Mettre à jour les dates `lastmod` (toutes figées à `2024-10-24`)
 - Supprimer les balises `<priority>` et `<changefreq>` (ignorées par Google)

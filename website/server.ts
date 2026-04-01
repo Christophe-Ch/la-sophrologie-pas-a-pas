@@ -28,6 +28,17 @@ export function app(): express.Express {
 
   // Example Express Rest API endpoints
   // server.get('/api/**', (req, res) => { });
+
+  server.get('/robots.txt', (req, res) => {
+    res.type('text/plain');
+    res.sendFile(join(browserDistFolder, 'robots.txt'));
+  });
+
+  server.get('/sitemap.xml', (req, res) => {
+    res.type('application/xml');
+    res.sendFile(join(browserDistFolder, 'sitemap.xml'));
+  });
+
   // Serve static files from /browser
   server.get('**', express.static(browserDistFolder, {
     maxAge: '1y',
