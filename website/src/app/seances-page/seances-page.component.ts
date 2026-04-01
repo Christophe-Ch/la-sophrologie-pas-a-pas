@@ -38,7 +38,7 @@ export class SeancesPageComponent implements OnInit, OnDestroy {
     this._canonicalService.setCanonical('/seances');
     this._meta.updateTag({
       name: 'description',
-      content: 'Je propose différents types de séances de sophrologie adaptées à vos besoins. Vous pouvez bénéficier de séances individuelles pour une attention personnalisée, ou rejoindre l\'un de mes groupes de sophrologie pour partager une expérience de relaxation et de développement personnel avec d\'autres. Mes séances comprennent la gestion du stress, la relaxation, la préparation mentale, le développement personnel et plus encore.'
+      content: 'Séances de sophrologie individuelles et en groupe à Saint-Aignan-sur-Ry — gestion du stress, relaxation et développement personnel pour tous les âges.'
     });
     this._meta.updateTag({
       name: 'keywords',

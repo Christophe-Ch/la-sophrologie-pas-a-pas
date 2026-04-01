@@ -20,7 +20,7 @@ export class SophrologiePageComponent implements OnInit {
     this._canonicalService.setCanonical('/sophrologie');
     this._meta.updateTag({
       name: 'description',
-      content: 'Découvrez la sophrologie et ses bienfaits sur le corps et l\'esprit. Cette méthode de relaxation et de développement personnel peut aider à réduire le stress, améliorer le sommeil, augmenter la confiance en soi et plus encore. La sophrologie s\'adresse à tous, des enfants aux adultes.'
+      content: 'La sophrologie est une méthode de relaxation et développement personnel. Adaptée à tous les âges pour gérer le stress, améliorer le sommeil et la confiance en soi.'
     });
     this._meta.updateTag({
       name: 'keywords',

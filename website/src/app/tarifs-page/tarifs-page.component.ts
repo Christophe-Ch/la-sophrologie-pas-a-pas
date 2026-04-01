@@ -29,7 +29,7 @@ export class TarifsPageComponent implements OnInit, OnDestroy {
     this._canonicalService.setCanonical('/tarifs');
     this._meta.updateTag({
       name: 'description',
-      content: 'Consultez mes tarifs de sophrologie pour bénéficier de séances adaptées à tous les âges et à tous les besoins. N\'hésitez pas à me contacter pour plus d\'informations et pour prendre rendez-vous.'
+      content: 'Tarifs des séances de sophrologie à Saint-Aignan-sur-Ry — individuel adulte 45€, enfant 35€, séances de groupe dès 60€/trimestre.'
     });
     this._meta.updateTag({
       name: 'keywords',
