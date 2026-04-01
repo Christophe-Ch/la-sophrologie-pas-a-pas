@@ -159,7 +159,7 @@ Appeler `this.injectSchema()` dans `ngOnInit()`.
 
 ## Sprint 2 — High (1-2 semaines)
 
-### Étape 6 — Créer un `CanonicalService` partagé
+### ~~Étape 6 — Créer un `CanonicalService` partagé~~ ✅
 
 Créer `website/src/app/canonical.service.ts` :
 
@@ -196,7 +196,7 @@ Appeler depuis chaque composant dans `ngOnInit` :
 
 ---
 
-### Étape 7 — Corriger les balises OG (`name=` → `property=`) et les compléter
+### ~~Étape 7 — Corriger les balises OG (`name=` → `property=`) et les compléter~~ ✅
 
 Dans **tous les composants `.ts`**, remplacer :
 
@@ -227,7 +227,7 @@ Images OG par page (remplacer `home.jpg` générique) :
 
 ---
 
-### Étape 8 — Ajouter des keywords locaux dans les titres et headings
+### ~~Étape 8 — Ajouter des keywords locaux dans les titres et headings~~ ✅
 
 Modifier `TitleService` ou les appels `setTitle` dans chaque composant :
 
@@ -242,7 +242,7 @@ Ajouter dans le body text de la homepage un paragraphe d'intro (~60 mots) mentio
 
 ---
 
-### Étape 9 — Ajouter le JSON-LD `Person` sur `/qui-suis-je`
+### ~~Étape 9 — Ajouter le JSON-LD `Person` sur `/qui-suis-je`~~ ✅
 
 Fichier : `website/src/app/qui-suis-je-page/qui-suis-je-page.component.ts`
 
@@ -289,7 +289,7 @@ Même pattern que l'étape 5. JSON-LD à injecter :
 
 ---
 
-### Étape 10 — Ajouter le JSON-LD `Service` sur `/seances` et `Offer` sur `/tarifs`
+### ~~Étape 10 — Ajouter le JSON-LD `Service` sur `/seances` et `Offer` sur `/tarifs`~~ ✅
 
 **`/seances`** — injecter dans `seances-page.component.ts` :
 
@@ -364,7 +364,7 @@ Même pattern que l'étape 5. JSON-LD à injecter :
 
 ### Étape 11 — Optimiser l'image hero pour le LCP mobile
 
-Fichier : `website/src/app/home-page/home-page.component.html`
+~~Fichier : `website/src/app/home-page/home-page.component.html`~~ ✅
 
 ```html
 <!-- Avant -->
@@ -388,7 +388,7 @@ Corriger l'alt manquant dans `sophrologie-page.component.html` (image `sophrolog
 
 ---
 
-### Étape 12 — Rendre le téléphone et l'email cliquables
+### ~~Étape 12 — Rendre le téléphone et l'email cliquables~~ ✅
 
 Fichier : `website/src/app/contact-page/contact-page.component.html`
 
@@ -445,7 +445,7 @@ Pages à corriger :
 
 ---
 
-### Étape 16 — Corriger les keywords copiés-collés
+### ~~Étape 16 — Corriger les keywords copiés-collés~~ ✅
 
 Pages avec les keywords de `/qui-suis-je` copiés par erreur :
 - `seniors-page.component.ts` → remplacer par : `"sophrologie séniors, sophrologie personnes âgées, bien-être senior, relaxation séniors, Seine-Maritime, Saint-Aignan-Sur-Ry"`

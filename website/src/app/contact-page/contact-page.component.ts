@@ -20,6 +20,7 @@ import { environment } from 'src/environments/environment';
 import { TitleService } from '../title.service';
 import { Meta } from '@angular/platform-browser';
 import { AxeptioService } from '../axeptio.service';
+import { CanonicalService } from '../canonical.service';
 import { filter } from 'rxjs';
 
 const RECAPTCHA_SCRIPT_SRC =
@@ -42,7 +43,8 @@ export class ContactPageComponent implements OnInit {
     private readonly _titleService: TitleService,
     private readonly _meta: Meta,
     private readonly _cdr: ChangeDetectorRef,
-    private readonly _axeptioService: AxeptioService
+    private readonly _axeptioService: AxeptioService,
+    private readonly _canonicalService: CanonicalService
   ) {
     afterNextRender(() => {
       this._initializeMap();
@@ -58,30 +60,26 @@ export class ContactPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this._titleService.setTitle('Contact');
+    this._titleService.setTitle('Contact — Sophrologue Saint-Aignan-sur-Ry');
+    this._canonicalService.setCanonical('/contact');
     this._meta.updateTag({
       name: 'description',
       content:
         'Contactez-moi pour toute demande de renseignements ou pour prendre rendez-vous. Je suis à votre écoute pour répondre à vos questions sur mes séances de sophrologie.',
     });
     this._meta.updateTag({
-      name: 'og:description',
-      content:
-        'Contactez-moi pour toute demande de renseignements ou pour prendre rendez-vous. Je suis à votre écoute pour répondre à vos questions sur mes séances de sophrologie.',
-    });
-    this._meta.updateTag({
-      name: 'og:image',
-      content: '/assets/home.jpg',
-    });
-    this._meta.updateTag({
       name: 'keywords',
       content:
         'Sophrologie, séances de sophrologie, Saint-Aignan-Sur-Ry, Anne Avenel Dubois, contact, rendez-vous, demande de renseignements, qualité de vie',
     });
-    this._meta.updateTag({
-      name: 'twitter:card',
-      content: 'summary',
-    });
+    this._meta.updateTag({ name: 'twitter:card', content: 'summary' });
+    this._meta.updateTag({ property: 'og:title', content: 'Contact — Sophrologue Saint-Aignan-sur-Ry' });
+    this._meta.updateTag({ property: 'og:description', content: 'Contactez-moi pour toute demande de renseignements ou pour prendre rendez-vous. Je suis à votre écoute pour répondre à vos questions sur mes séances de sophrologie.' });
+    this._meta.updateTag({ property: 'og:image', content: 'https://www.lasophrologiepasapas.fr/assets/home.jpg' });
+    this._meta.updateTag({ property: 'og:url', content: 'https://www.lasophrologiepasapas.fr/contact' });
+    this._meta.updateTag({ property: 'og:type', content: 'website' });
+    this._meta.updateTag({ property: 'og:site_name', content: 'La sophrologie pas à pas' });
+    this._meta.updateTag({ property: 'og:locale', content: 'fr_FR' });
     this._buildForm();
   }
 
